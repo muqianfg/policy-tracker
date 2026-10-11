@@ -1,5 +1,6 @@
-﻿# —— 个人内容（不公开）——
-daily/
+﻿# —— 内部内容（不公开）——
+# MANIFEST.md 是调度面板（含行动项/到期日等内部信息），不公开
+MANIFEST.md
 tracking/
 templates/examples/
 video/可行性评估.md

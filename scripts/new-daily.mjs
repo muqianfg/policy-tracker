@@ -14,6 +14,25 @@ function argDate() {
   return a || today();
 }
 
+
+// 维护 README 的「每日简报索引」：在表格首行插入当天的条目
+function updateReadmeIndex(day, firstHook) {
+  const readmePath = path.join(ROOT, 'README.md');
+  if (!fs.existsSync(readmePath)) return;
+  let rd = fs.readFileSync(readmePath, 'utf8');
+  const marker = '| --- | --- |';
+  const i = rd.indexOf('## 每日简报索引');
+  if (i < 0) return;
+  const j = rd.indexOf(marker, i);
+  if (j < 0) return;
+  const line = '| [' + day + '](daily/' + day + '.md) | ' + firstHook + ' |';
+  const insertAt = j + marker.length;
+  if (rd.slice(insertAt, insertAt + 200).includes('daily/' + day + '.md')) return;
+  rd = rd.slice(0, insertAt) + '\n' + line + rd.slice(insertAt);
+  fs.writeFileSync(readmePath, '\uFEFF' + rd.replace(/^\uFEFF/, ''), 'utf8');
+  console.log('已更新 README 索引: ' + day);
+}
+
 const DAY = argDate();
 const FORCE = process.argv.includes('--force');
 const dailyDir = path.join(ROOT, 'daily');
@@ -45,5 +64,7 @@ tpl = tpl.replace('<!--GENERATED_AT-->', now);
 
 fs.writeFileSync(outPath, BOM + tpl, 'utf8');
 console.log('已生成: ' + outPath);
+// 索引里先占位，分析完成后由 agent 用真实钩子替换
+try { updateReadmeIndex(DAY, '（待补充一句话摘要）'); } catch (e) { console.log('索引更新跳过: ' + e.message); }
 console.log('='.repeat(64));
 console.log(rawBlock);
