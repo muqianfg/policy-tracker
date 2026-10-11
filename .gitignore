@@ -1,0 +1,20 @@
+# —— 个人内容（不公开）——
+daily/
+tracking/
+templates/examples/
+video/可行性评估.md
+video/成本与上下文.md
+video/内容节奏设计.md
+video/任务迁移说明.md
+video/任务提示词.md
+
+# —— 系统与临时文件 ——
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+*.bak
+*.log
+node_modules/
+.vscode/
+.idea/
