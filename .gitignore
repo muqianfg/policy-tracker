@@ -1,24 +1,21 @@
-﻿# —— 内部内容（不公开）——
-# MANIFEST.md 是调度面板（含行动项/到期日等内部信息），不公开
+﻿# Local notes and working files
 MANIFEST.md
 tracking/
 templates/examples/
-video/可行性评估.md
-video/成本与上下文.md
-video/内容节奏设计.md
-video/任务迁移说明.md
-video/任务提示词.md
-
-# —— 内部运维文档（含本机路径，不公开）——
 docs/
+video/
 
-# —— 系统与临时文件 ——
+# OS files
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Editor and tooling
+.vscode/
+.idea/
+node_modules/
+
+# Temporary
 *.tmp
 *.bak
 *.log
-node_modules/
-.vscode/
-.idea/
