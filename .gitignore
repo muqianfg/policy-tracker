@@ -15,6 +15,9 @@ desktop.ini
 .idea/
 node_modules/
 
+# Secrets
+.gh-token
+
 # Temporary
 *.tmp
 *.bak
