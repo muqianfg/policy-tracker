@@ -1,4 +1,10 @@
-// 当 git 通道被阻断时，用 GitHub Git Data API 提交（不依赖 git 协议，也不启动子进程）
+﻿// 当 git 通道被阻断时，用 GitHub Git Data API 提交（不依赖 git 协议，也不启动子进程）
+//
+// ⚠️ 重要：本脚本通过 API 直接创建远端提交，**本地 git 历史不会自动跟上**，两边会分叉。
+//    下一次 git 网络可用时必须先对齐：
+//        git fetch origin main
+//        git reset --hard origin/main      # 注意：会覆盖未提交的本地改动，先确认没有
+//    （本次 2026-10-13 就因为没有对齐，导致后续一次 reset 覆盖了 3 个未提交文件，已从远端恢复）
 // 用法: node scripts/gh-api-push.mjs "commit message"
 import fs from 'node:fs';
 import path from 'node:path';

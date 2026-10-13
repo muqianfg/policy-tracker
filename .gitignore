@@ -15,7 +15,7 @@ desktop.ini
 .idea/
 node_modules/
 
-# Secrets
+# Local secrets
 .gh-token
 
 # Temporary
