@@ -53,6 +53,14 @@
 
 这份记录是给普通人看的。**任何专业词第一次出现，都会先用一句话解释它是什么**，之后才用简称（例如「**工厂的出厂价格**（PPI）」）。完整的对照表见 [templates/术语对照表.md](templates/术语对照表.md)，收录 44 个常用词的人话解释。
 
+## 附带一个 AI Skill
+
+仓库里带了一份 **DSH / Claude Code 风格的 Skill**：`.dsh/skills/news-policy-tracking/SKILL.md`。
+
+它把这套系统的**五条铁律、文件地图、每日流程、更新信号档案的步骤、以及踩过的坑**固化成一个可被 AI 直接加载的指令文件 —— 任何支持 skill 的 agent 读它就能接手维护，不需要从头解释。
+
+> 为什么放在这里：这套系统的规则已经迭代了七八轮（说人话、只追加带日期、个人影响同步更新、置信度一次最多升一档……），靠人记会漏。**规则写进模板，模板写进 skill，才不会重犯。**
+
 ## 目录结构
 
 | 路径 | 说明 |
@@ -62,6 +70,7 @@
 | `signals/_模板.md` | 新信号的文件模板 |
 | `templates/analysis-playbook.md` | 解读方法论：四条铁律、术语翻译规则、四层影响框架、答案写法、跟踪纪律 |
 | `templates/术语对照表.md` | **术语对照表（说人话版）**：44 个专业词的人话解释 |
+| `.dsh/skills/news-policy-tracking/` | **AI Skill**：把这套系统的规则与流程固化成 agent 可加载的指令 |
 | `templates/daily-template.md` | 每日简报的结构模板 |
 | `scripts/fetch-lianbo.mjs` | 抓取《新闻联播》官方条目单（四级数据源降级） |
 | `scripts/new-daily.mjs` | 生成当天简报骨架 |
