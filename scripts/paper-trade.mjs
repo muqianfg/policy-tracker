@@ -32,6 +32,52 @@ function loadState() {
 }
 const saveState = (s) => { mkdirSync(dirname(STATE_PATH), { recursive: true }); writeFileSync(STATE_PATH, JSON.stringify(s, null, 2), "utf8"); };
 
+function writeJournal(s) {
+  const done = s.trades.filter((t) => t.pnl !== undefined);
+  const wins = done.filter((t) => t.pnl > 0);
+  const losses = done.filter((t) => t.pnl <= 0);
+  const sumWin = wins.reduce((a, t) => a + t.pnl, 0);
+  const sumLoss = Math.abs(losses.reduce((a, t) => a + t.pnl, 0));
+  const eq = s.equity.at(-1)?.equity ?? s.cash;
+  const ret = ((eq - s.initial) / s.initial) * 100;
+  const L = [];
+  L.push("# 打板模拟 · 交易日志", "");
+  L.push("> 自动生成，勿手改。规则见 [规则与测试周期.md](规则与测试周期.md)。");
+  L.push("");
+  L.push("| 项 | 值 |");
+  L.push("| --- | --- |");
+  L.push("| 起始本金 | " + s.initial.toLocaleString() + " 元（" + s.createdAt + "） |");
+  L.push("| 当前权益 | **" + eq.toFixed(2) + " 元** |");
+  L.push("| 累计收益 | **" + (ret >= 0 ? "+" : "") + ret.toFixed(2) + "%** |");
+  L.push("| 已平仓 | " + done.length + " 笔 |");
+  L.push("| 胜率 | " + (done.length ? ((wins.length / done.length) * 100).toFixed(1) : "—") + "% |");
+  L.push("| 盈亏比 | " + (wins.length && losses.length ? ((sumWin / wins.length) / (sumLoss / losses.length)).toFixed(2) : "—") + " |");
+  L.push("| 当前持仓 | " + (s.position ? s.position.name + "(" + s.position.code + ") " + s.position.shares + " 股" : "空仓") + " |");
+  L.push("");
+  L.push("## 交易记录");
+  L.push("");
+  if (!s.trades.length) L.push("（暂无）");
+  else {
+    L.push("| # | 买入日 | 标的 | 连板 | 封板资金 | 行业 | 买价 | 卖价 | 盈亏% | 盈亏元 | 持有 |");
+    L.push("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |");
+    s.trades.forEach((t, i) => {
+      const sold = t.pnl !== undefined;
+      const pct = sold ? (((t.sellPrice - t.cost) / t.cost) * 100).toFixed(2) : "—";
+      L.push("| " + (i + 1) + " | " + (t.buyDate ?? "") + " | " + t.name + "(" + t.code + ") | " + (t.lbc ?? "") + "板 | " + ((t.fund ?? 0) / 1e8).toFixed(2) + "亿 | " + (t.hybk ?? "") + " | " + t.cost + " | " + (sold ? t.sellPrice.toFixed(2) : "持仓中") + " | " + pct + " | " + (sold ? t.pnl.toFixed(2) : "—") + " | " + (sold ? "1天" : "—") + " |");
+    });
+  }
+  L.push("");
+  L.push("## 权益曲线");
+  L.push("");
+  L.push("| 日期 | 权益 | 收益率 |");
+  L.push("| --- | --- | --- |");
+  s.equity.forEach((e) => L.push("| " + e.date + " | " + e.equity.toFixed(2) + " | " + (((e.equity - s.initial) / s.initial) * 100).toFixed(2) + "% |"));
+  L.push("");
+  mkdirSync(join(ROOT, "打板"), { recursive: true });
+  writeFileSync(join(ROOT, "打板", "交易日志.md"), "\uFEFF" + L.join("\n"), "utf8");
+}
+
+
 async function fetchJson(url) {
   const r = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0", Referer: "https://quote.eastmoney.com/" } });
   return await r.json();
@@ -80,10 +126,11 @@ function report(s) {
   console.log("  累计盈亏      " + (totalPnl >= 0 ? "+" : "") + totalPnl.toFixed(2) + " 元");
   if (s.position) console.log("  ⏳ 当前持仓    " + s.position.name + "(" + s.position.code + ") " + s.position.shares + " 股 @ " + s.position.cost);
   console.log("══════════════════════════════");
+  console.log("  日志：打板/交易日志.md");
 }
 
 const state = loadState();
-if (REPORT) { report(state); process.exit(0); }
+if (REPORT) { writeJournal(state); report(state); process.exit(0); }
 
 // ── 第一步：结算昨日持仓（按今日开盘价卖出，模拟"隔日冲高卖"）──
 if (state.position) {
@@ -142,5 +189,8 @@ if (state.position) {
   equity += (q?.price ?? state.position.cost) * state.position.shares;
 }
 state.equity.push({ date: today(), equity: +equity.toFixed(2) });
+
+
+writeJournal(state);
 saveState(state);
 report(state);
