@@ -18,6 +18,7 @@ node_modules/
 
 # Local secrets
 .gh-token
+.mimo-key
 
 # Temporary
 *.tmp
