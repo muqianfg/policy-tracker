@@ -40,43 +40,51 @@ for (const d of ["html", "frames", "audio", "seg"]) {
 }
 
 // ══════════ 样式：v2 的居中构图 + html-ppt 的入场曲线 ══════════
+const SKILL = join(ROOT, "..", "..", ".dsh", "skills", "html-ppt").replace(/\\/g, "/");
+// 主题白名单（2026-10-26 定案：只保留这两套配色）
+const THEMES = ["editorial-serif", "magazine-bold"];
+const DEFAULT_THEME = "editorial-serif";
+const THEME = THEMES.includes(spec.theme) ? spec.theme : DEFAULT_THEME;
+if (spec.theme && !THEMES.includes(spec.theme)) {
+  console.log("⚠ 主题 " + spec.theme + " 不在定案列表内，已回退到 " + DEFAULT_THEME);
+}
+const THEME_URL = "file:///" + SKILL + "/assets/themes/" + THEME + ".css";
+const BASE_URL = "file:///" + SKILL + "/assets/base.css";
+const headLinks = '<link rel="stylesheet" href="' + BASE_URL + '">'
+  + '<link rel="stylesheet" href="' + THEME_URL + '">';
+
 const CSS = `
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden}
-body{background:#0a0e14;color:#e8eef6;font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+body{background:var(--bg,#0a0e14);color:var(--text-1,#e8eef6);
+  font-family:var(--font-sans,"Microsoft YaHei","PingFang SC",sans-serif);
   position:relative;display:flex;align-items:center;justify-content:center}
-body::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 62% 58% at 50% 48%, rgba(240,180,41,.13) 0%, rgba(240,180,41,.05) 38%, rgba(10,14,20,0) 72%)}
-body::after{content:"";position:absolute;inset:0;opacity:.16;
-  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
-  background-size:120px 120px;
-  mask-image:radial-gradient(ellipse 70% 65% at 50% 50%, #000 15%, transparent 78%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 65% at 50% 50%, #000 15%, transparent 78%)}
+.glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 62% 58% at 50% 48%, color-mix(in srgb, var(--accent,#f0b429) 13%, transparent) 0%, rgba(0,0,0,0) 72%)}
 .stage{position:relative;z-index:2;width:1560px;text-align:center}
-.kicker{font-size:27px;letter-spacing:.34em;color:#7d8896;margin-bottom:44px}
-.rule{width:72px;height:4px;background:#f0b429;margin:0 auto 46px;border-radius:2px}
+.kicker{font-size:27px;letter-spacing:.32em;color:var(--text-3,#7d8896);margin-bottom:40px}
+.rule{width:72px;height:4px;background:var(--accent,#f0b429);margin:0 auto 44px;border-radius:var(--radius,2px)}
+h1,h2{font-family:var(--font-display,inherit)}
 h1{font-size:132px;line-height:1.16;font-weight:900;letter-spacing:-.015em}
-h2{font-size:78px;line-height:1.24;font-weight:800;color:#f0b429;margin-bottom:50px}
-.sub{font-size:46px;line-height:1.6;color:#8d99a8;margin-top:52px}
+h2{font-size:78px;line-height:1.24;font-weight:800;color:var(--accent,#f0b429);margin-bottom:48px}
+.sub{font-size:46px;line-height:1.6;color:var(--text-3,#8d99a8);margin-top:52px}
 .numwrap{display:flex;align-items:baseline;justify-content:center;gap:18px}
-.big{font-size:330px;font-weight:900;line-height:.95;letter-spacing:-.045em;
-  background:linear-gradient(180deg,#ffd25e 0%,#f0b429 62%,#c98d12 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.unit{font-size:70px;color:#98a4b3;font-weight:600}
-.label{font-size:52px;line-height:1.45;margin-top:34px;color:#e8eef6}
+.big{font-size:330px;font-weight:900;line-height:.95;letter-spacing:-.045em;color:var(--accent,#f0b429)}
+.unit{font-size:70px;color:var(--text-3,#98a4b3);font-weight:600}
+.label{font-size:52px;line-height:1.45;margin-top:34px;color:var(--text-1,#e8eef6)}
 .points{display:flex;flex-direction:column;gap:30px;width:1380px;margin:0 auto;text-align:left}
 .pt{display:flex;align-items:flex-start;gap:30px}
-.badge{flex:0 0 auto;width:60px;height:60px;border-radius:15px;
-  background:rgba(240,180,41,.14);border:2px solid rgba(240,180,41,.5);
-  color:#f0b429;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:6px}
-.ptxt{font-size:50px;line-height:1.52;color:#eaf0f7;word-break:normal;line-break:strict;text-wrap:pretty}
-.qmark{font-size:150px;line-height:.6;color:#f0b429;opacity:.5;font-family:Georgia,serif}
+.badge{flex:0 0 auto;width:60px;height:60px;border-radius:var(--radius-sm,15px);
+  background:color-mix(in srgb, var(--accent,#f0b429) 16%, transparent);
+  border:2px solid color-mix(in srgb, var(--accent,#f0b429) 55%, transparent);
+  color:var(--accent,#f0b429);font-size:30px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-top:6px}
+.ptxt{font-size:50px;line-height:1.52;color:var(--text-1,#eaf0f7);word-break:normal;line-break:strict;text-wrap:pretty}
+.qmark{font-size:150px;line-height:.6;color:var(--accent,#f0b429);opacity:.5;font-family:Georgia,serif}
 .quote{font-size:74px;line-height:1.5;font-weight:700;white-space:pre-line;margin:18px 0 0}
-.source{font-size:36px;color:#7d8896;margin-top:48px;letter-spacing:.06em}
-.footer{position:absolute;left:0;right:0;bottom:52px;text-align:center;font-size:26px;color:#4d5663;letter-spacing:.1em;z-index:2}
-/* ── 入场动画（借用 html-ppt 的 kf-rise 曲线）── */
-@keyframes kf-rise{from{opacity:0;transform:translateY(60px) scale(.97);filter:blur(6px)}
-                   to{opacity:1;transform:none;filter:none}}
+.source{font-size:36px;color:var(--text-3,#7d8896);margin-top:48px;letter-spacing:.06em}
+.footer{position:absolute;left:0;right:0;bottom:50px;text-align:center;font-size:26px;color:var(--text-3,#4d5663);letter-spacing:.1em;z-index:2}
+@keyframes kf-rise{from{opacity:0;transform:translateY(60px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
 @keyframes kf-fade{from{opacity:0}to{opacity:1}}
 @keyframes kf-line{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
 .a{opacity:0;animation:kf-rise .55s cubic-bezier(.22,1,.36,1) both}
@@ -85,37 +93,10 @@ h2{font-size:78px;line-height:1.24;font-weight:800;color:#f0b429;margin-bottom:5
 .d02{animation-delay:.02s}.d06{animation-delay:.06s}.d10{animation-delay:.10s}
 .d18{animation-delay:.18s}.d24{animation-delay:.24s}.d30{animation-delay:.30s}
 .d36{animation-delay:.36s}.d42{animation-delay:.42s}.d48{animation-delay:.48s}
-.d54{animation-delay:.54s}
-`;
+.d54{animation-delay:.54s}`;
 
 const stripNum = function (str) { return String(str).replace(/^[\u2460-\u2473\u2776-\u277F\u2780-\u2789]\s*/, ""); };
 
-function htmlFor(seg) {
-  const v = seg.visual || {};
-  const kicker = (v.kicker || "") ? '<div class="kicker a d02">' + v.kicker + "</div>" : "";
-  const rule = '<div class="rule al d10"></div>';
-  let body = "";
-  if (v.type === "title") {
-    body = kicker + rule + '<h1 class="a d18">' + (v.main || "") + "</h1>"
-      + (v.sub ? '<div class="sub af d48">' + v.sub + "</div>" : "");
-  } else if (v.type === "number") {
-    body = kicker + rule
-      + '<div class="numwrap a d18"><span class="big">' + (v.value || "") + '</span><span class="unit">' + (v.unit || "") + "</span></div>"
-      + (v.label ? '<div class="label af d36">' + v.label + "</div>" : "")
-      + (v.sub ? '<div class="sub af d48">' + v.sub + "</div>" : "");
-  } else if (v.type === "points") {
-    const delays = ["d18", "d30", "d42", "d54", "d54", "d54"];
-    const items = (v.points || []).map(function (p, i) {
-      return '<div class="pt a ' + delays[i] + '"><div class="badge">' + (i + 1) + '</div><div class="ptxt">' + stripNum(p) + "</div></div>";
-    }).join("");
-    body = kicker + (v.title ? '<h2 class="a d10">' + v.title + "</h2>" : "")
-      + '<div class="points">' + items + "</div>";
-  } else if (v.type === "quote") {
-    body = kicker + '<div class="qmark a d10">"</div><div class="quote a d18">' + (v.quote || "") + "</div>"
-      + (v.source ? '<div class="source af d48">—— ' + v.source + "</div>" : "");
-  }
-  return '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><style>' + CSS + '</style></head><body><div class="stage">';
-}
 function docFor(seg) {
   const v = seg.visual || {};
   const kicker = (v.kicker || "") ? '<div class="kicker a d02">' + v.kicker + "</div>" : "";
@@ -132,7 +113,7 @@ function docFor(seg) {
   } else if (v.type === "quote") {
     body = kicker + '<div class="qmark a d10">"</div><div class="quote a d18">' + (v.quote || "") + "</div>" + (v.source ? '<div class="source af d48">—— ' + v.source + "</div>" : "");
   }
-  return '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><style>' + CSS + '</style></head><body><div class="stage">'
+  return '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">' + headLinks + '<style>' + CSS + '</style></head><body><div class="glow"></div><div class="stage">'
     + body + '</div><div class="footer">以上是我个人观点，不构成任何投资建议</div>'
     + '<script>'
     + 'var q=new URLSearchParams(location.search);var t=parseFloat(q.get("t")||"3");'
@@ -212,7 +193,7 @@ args.push("-filter_complex", fc, "-map", "[vbar]", "-map", "[aout]",
   "-c:a", "aac", "-b:a", "192k", "-t", String(totalAudio));
 const outDir = join(ROOT, "成片");
 mkdirSync(outDir, { recursive: true });
-const finalPath = join(outDir, slug + ".mp4");
+const finalPath = join(outDir, slug + ".mp4");   // slug 里已含主题名
 args.push(finalPath);
 execFileSync(FF, args, { stdio: "ignore" });
 console.log("[5/7] 过黑场拼接 + 进度条完成");
