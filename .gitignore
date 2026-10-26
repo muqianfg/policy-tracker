@@ -1,27 +1,30 @@
-﻿# Local notes and working files
+﻿# 私有与本地文件
 .dsh/
-MANIFEST.md
-tracking/
-打板/
-templates/examples/
-docs/
-video/
+.gh-token
+.mimo-key
+node_modules/
 
-# OS files
+# ── 新闻自动化：公开的部分是 日报 / 信号 / 模板 / 主题簇 ──
+新闻自动化/MANIFEST.md
+新闻自动化/追踪/
+新闻自动化/模板/examples/
+新闻自动化/模板/例子/
+
+# 视频：脚本与文档留备份，成片与素材不上传（体积大）
+新闻自动化/视频/成片/
+新闻自动化/视频/素材/
+
+# ── 打板：全部私有 ──
+打板/
+
+# OS / 编辑器
 Thumbs.db
 desktop.ini
 .DS_Store
-
-# Editor and tooling
 .vscode/
 .idea/
-node_modules/
 
-# Local secrets
-.gh-token
-.mimo-key
-
-# Temporary
+# 临时
 *.tmp
 *.bak
 *.log
