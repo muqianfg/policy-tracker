@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. 先在网页版 GitHub 新建一个空仓库（不要勾选 README/gitignore），记下仓库地址</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：运行手册.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 15:42:23 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">新闻联播每日简报 · 运行手册</h1>
+<h2 id="h-1">一、这套东西是干什么的</h2>
+<p>每天 <strong>20:30</strong>（北京时间）自动执行一次：</p>
+<ol><li>抓取当天 19:00《新闻联播》官方条目单</li><li>把新闻术语翻译成人话（不停在"读新闻"上）</li><li>推演对<strong>当天新闻所牵涉行业</strong>的影响（视角：自由职业者 / 投资者 / 创业者，寻找机会）</li><li>推演对<strong>个人</strong>的影响，落到可执行动作</li><li><strong>写下一个可被证伪的答案并落盘</strong> ← 核心步骤</li><li>判断趋势方向，并在之后的每一天持续跟踪这条趋势的进展</li></ol>
+<h2 id="h-4">二、目录结构</h2>
+<div class="table-wrap"><table><thead><tr><th>路径</th><th>作用</th></tr></thead><tbody><tr><td><code>daily\YYYY-MM-DD.md</code></td><td>每日一篇。文件名 = 新闻联播播出日期。当天可补全，之后只增不改</td></tr><tr><td><code>tracking\趋势追踪.md</code></td><td>主档案。答案登记表 + 趋势进展日志 + 校准复盘，逐日<strong>追加</strong></td></tr><tr><td><code>templates\daily-template.md</code></td><td>日报结构模板</td></tr><tr><td><code>templates\analysis-playbook.md</code></td><td>解读方法论：术语翻译规则、四层影响框架、答案写法、跟踪纪律</td></tr><tr><td><code>scripts\fetch-lianbo.mjs</code></td><td>抓央视官方条目单（可作模块调用，也可 CLI）</td></tr><tr><td><code>scripts\new-daily.mjs</code></td><td>生成当天日报骨架并打印条目单</td></tr></tbody></table></div>
+<h2 id="h-6">三、每晚执行命令</h2>
+<pre data-lang="powershell"><code>cd D:\自动化任务
+node scripts\new-daily.mjs             # 生成当天日报骨架 + 打印条目单
+node scripts\new-daily.mjs 2026-10-07  # 补生成指定日期
+node scripts\new-daily.mjs --force      # 覆盖重建当天文件
+node scripts\fetch-lianbo.mjs --json    # 只要原始数据</code></pre>
+<p>抓取失败时的兜底（不要编造内容）：</p>
+<ul><li>央视栏目页 <code>https://tv.cctv.com/lm/xwlb/</code></li><li>搜索："新闻联播 {YYYY年M月D日} 主要内容"</li><li>确认失败就在日报里写明"本期抓取失败 + 原因"，并只基于可获得的公开报道分析</li></ul>
+<h3 id="h-10">已知坑</h3>
+<ul><li>央视页面上 <strong>19:00 那期</strong>的 <code>meta description</code> 才是完整条目单，21:00 重播页的 description 是空的 —— 脚本已优先选 19:00。</li><li>必须用 <strong>Node</strong> 抓取。Windows PowerShell 5.1 的 <code>Invoke-WebRequest</code> 会把 UTF-8 页面按 Latin-1 读取导致中文乱码（<code>fetch-lianbo.ps1</code> 已弃用）。</li><li>本机没有 <code>pwsh</code>，只有 <code>powershell</code> 5.1。</li></ul>
+<h2 id="h-12">四、执行流程（每天照做）</h2>
+<ol><li><strong>跑脚本</strong>：<code>node scripts\new-daily.mjs</code>，拿到当天条目单。</li><li><strong>读条目单</strong>：10~15 条主条 + 一组联播快讯 + 国际条目。<strong>不要逐条复述</strong>。</li><li><strong>术语去魅</strong>：见 playbook 的术语速查表。</li><li><strong>挑 3 件事深挖</strong>：有钱、有政策抓手、有时间表、有新提法的才进。每件走完"术语翻译 → 真信号 → 行业传导 → 机会窗口 → 反面理由"。</li><li><strong>行业影响表</strong>：方向 + 钱怎么流 + 时间节奏 + 关注信号。</li><li><strong>个人影响</strong>：时间/钱/技能/资源，落到"下周可以做的三件事"。</li><li><strong>写下答案</strong>（最重要）：1~3 条，格式见 playbook。宁可写"尚不明朗"，也不要把噪音包装成机会。</li><li><strong>追加跟踪</strong>：</li><ul><li>新答案 → 写进 <code>tracking\趋势追踪.md</code> 的「答案登记表」</li><li>对历史答案的新证据 → 追加到「趋势进展日志」，格式 <code>### YYYY-MM-DD | T-YYYYMMDD-NN</code></li><li>每天回看<strong>最近 30 天</strong>未结答案；无新进展也要写一行</li><li>满 3 个月做一次「校准复盘」</li></ul><li><strong>交付</strong>：把当天简报正文输出给用户，并在结尾说明新增了几条答案、有无历史答案被证据更新或推翻。</li></ol>
+<h2 id="h-14">五、给自动化用的一句话任务描述</h2>
+<blockquote><p>读今天的《新闻联播》，把术语翻译成人话，推演它对新闻所牵涉行业的影响（自由职业者/投资者/创业者视角，寻找机会），推演对我的个人影响，然后<strong>写下一个可被证伪的答案并保存</strong>，判断趋势方向，并在随后的时间里持续跟踪它。</p></blockquote>
+<h2 id="h-16">六、信号档案（signals/）</h2>
+<p><strong>为什么拆分</strong>：原来的 <code>tracking\趋势追踪.md</code> 是单文件，每运行一次就要整份重读，随着时间推移 token 成本线性上升。 现在把每条信号拆成独立文件，并在 <code>MANIFEST.md</code> 里维护一张总表 —— <strong>每次运行只必读 MANIFEST（约 600 tokens），再按需读 1~3 个有变化的信号文件</strong>。</p>
+<div class="table-wrap"><table><thead><tr><th>文件</th><th>作用</th><th>谁读</th></tr></thead><tbody><tr><td><code>MANIFEST.md</code></td><td>信号总表：状态、趋势、置信度、证据条数、最后更新</td><td><strong>每次必读</strong></td></tr><tr><td><code>signals/T-YYYYMMDD-NN.md</code></td><td>单条信号的完整档案（问题/答案/验证方式/证据时间线/复盘/修正记录）</td><td>按需读</td></tr><tr><td><code>signals/_模板.md</code></td><td>新建信号时复制此模板</td><td>—</td></tr><tr><td><code>tracking\趋势追踪.md</code></td><td>保留为日志与总览（按天看）</td><td>需要回溯时读</td></tr></tbody></table></div>
+<p><strong>新增信号时</strong>：复制 <code>_模板.md</code> → 改名 <code>T-YYYYMMDD-NN.md</code> → 填内容 → 在 MANIFEST 总表加一行。 <strong>有新证据时</strong>：只在对应信号文件的「证据时间线」追加一节，然后回填 MANIFEST 的「证据条数/最后更新/状态/置信度」。</p>
+<h2 id="h-20">七、发布到 GitHub</h2>
+<p>工作区已初始化为本地 git 仓库。<strong>公开的内容</strong>：方法论、脚本、信号档案、MANIFEST。 <strong>不公开的内容</strong>（已写入 <code>.gitignore</code>）：<code>daily\</code>（每日简报）、<code>tracking\</code>（日志）、<code>templates\examples\</code>、<code>video\</code> 下的内部文档。</p>
+<p>首次推送到 GitHub（需要你自己操作，因为要用你的账号认证）：</p>
+<pre data-lang="powershell"><code>cd D:\自动化任务
+# 1. 先在网页版 GitHub 新建一个空仓库（不要勾选 README/gitignore），记下仓库地址
+# 2. 关联并推送
+git remote add origin https://github.com/&lt;你的用户名&gt;/&lt;仓库名&gt;.git
+git branch -M main
+git push -u origin main</code></pre>
+<p>之后每次更新只需：</p>
+<pre data-lang="powershell"><code>cd D:\自动化任务
+git add -A
+git commit -m "docs: 更新 T-YYYYMMDD-NN 证据"
+git push</code></pre>
+<p><strong>发布前请确认</strong>：<code>PUBLIC-README.md</code> 里的免责声明符合你的意图；<code>git status --short</code> 里没有不该公开的文件。</p>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

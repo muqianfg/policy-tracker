@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>铜需求与现货升水背离</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：铜需求与现货升水背离.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 20:33:53 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">T-20261027-03 · 铜：利润高增与现货升水的背离</h1>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>值</th></tr></thead><tbody><tr><td>状态</td><td>待验证</td></tr><tr><td>趋势判断</td><td>震荡（需求预期强，但现货未紧）</td></tr><tr><td>时间窗</td><td>1M</td></tr><tr><td>置信度</td><td>中</td></tr><tr><td>立档日</td><td>2026-10-27</td></tr><tr><td>最后更新</td><td>2026-10-27</td></tr><tr><td>证据条数</td><td>1</td></tr><tr><td>所属簇</td><td><strong>E · 能源与交通电动化</strong></td></tr><tr><td>关联信号</td><td>T-20261022-02（新业态用电→铜需求）、T-20261027-02（电子/算力→铜需求）；与期货系统「铜买不起」的观察直接对应</td></tr></tbody></table></div>
+<blockquote><p><strong>术语</strong>：本档案中专业词<strong>第一次出现时已用人话解释</strong>。完整词表见 <a href="../模板/术语对照表.html">术语对照表</a>。</p></blockquote>
+<h2 id="h-3">术语小词典</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>人话解释</th></tr></thead><tbody><tr><td><strong>月差</strong></td><td>同一个商品，近期交货和远期交货的价格差。<strong>近期比远期贵 = 现在缺货</strong>；近期比远期便宜 = 货很足</td></tr><tr><td><strong>Backwardation（现货升水）</strong></td><td>近月价格 &gt; 远月价格，说明现货紧张、大家抢着要现货</td></tr><tr><td><strong>Contango（期货升水）</strong></td><td>近月价格 &lt; 远月价格，说明库存充足、不着急要货</td></tr><tr><td><strong>有色</strong></td><td>铜、铝、铅、锌、镍等金属冶炼行业</td></tr></tbody></table></div>
+<h2 id="h-5">一、问题（可被证伪）</h2>
+<p>有色行业利润 +79.7% 的强需求，会不会推动铜的现货升水（Backwardation）走强？</p>
+<h2 id="h-7">二、我的答案</h2>
+<p><strong>不会立即推动。</strong> 铜的月差在未来 1 个月内仍将维持在 <strong>+1% 以内的弱 Backwardation</strong>，因为利润高增发生在「矿端与冶炼端」，<strong>不等于「现货紧张」</strong>。</p>
+<h2 id="h-9">三、验证方式</h2>
+<ul><li><strong>主指标</strong>：铜月差（近月 RB 合约 − 主力合约）/ 主力合约。</li><li><strong>辅助指标</strong>：LME 铜库存、上期所铜库存、铜现货升贴水。</li><li><strong>判据</strong>：</li><ul><li>月差突破 <strong>+2%</strong> → 我的判断被推翻（现货真的紧了）。</li><li>月差维持 +1% 以内 → 判断成立。</li><li>库存连续 3 周下降且月差走强 → 提前认错。</li></ul></ul>
+<h2 id="h-11">四、证据时间线（只追加，不改写）</h2>
+<h3 id="h-12">2026-10-27 · 立档</h3>
+<ul><li><strong>来源</strong>：① 国家统计局 10-27 工业利润数据；② 期货系统 10-27 实测月差（新浪期货 nf_ 接口，近月 vs 主力）。</li><li><strong>事实</strong>：</li><ul><li>统计局：1—9 月<strong>有色行业利润 +79.7%</strong>，官方明确归因「<strong>人工智能、新能源等领域对铜、铝等基础金属产品需求旺盛</strong>」。</li><li>期货实测：<strong>铜（CU）月差 +0.66%</strong>（近月 109,110 vs 主力 108,390），属<strong>弱 Backwardation</strong>；对比同为工业品的<strong>玻璃 +3.55%</strong>、焦煤 +2.01%。</li></ul><li><strong>我的解读</strong>：<strong>利润高 ≠ 现货紧。</strong> 有色利润的改善更多来自矿端成本、冶炼加工费与长单价格，而不是"市场抢现货"。如果现货真的紧张，月差应该像玻璃一样拉大到 3% 以上。<strong>铜目前是"预期强、现货平"的状态。</strong></li><li><strong>对判断的影响</strong>：<strong>立档</strong>（这是一次"用现货结构检验利润数据"的对照实验）</li></ul>
+<h2 id="h-14">五、复盘</h2>
+<ul><li>（待 2026-11-27 到期填写）</li></ul>
+<h2 id="h-16">六、修正记录</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>修正内容</th><th>原因</th></tr></thead><tbody><tr><td>2026-10-27</td><td>立档</td><td>—</td></tr></tbody></table></div>
+<h2 id="h-18">七、影响判断（三分法，缺一不可）</h2>
+<h3 id="h-19">2026-10-27 · 影响判断</h3>
+<h4 id="h-20">一、创业风口：钱从哪个环节过</h4>
+<div class="table-wrap"><table><thead><tr><th>要素</th><th>内容</th></tr></thead><tbody><tr><td><strong>谁在花钱</strong></td><td>电网公司、数据中心、新能源车企与电池厂</td></tr><tr><td><strong>买什么</strong></td><td>铜排/母线、线缆、变压器、连接器、再生铜回收加工</td></tr><tr><td><strong>谁能接</strong></td><td>线缆与铜排加工需<strong>生产许可证与型式试验报告</strong>；再生铜回收需<strong>危废/固废资质</strong></td></tr><tr><td><strong>单笔规模</strong></td><td>线缆与铜排供货 <strong>几十万到千万级</strong>；再生铜回收按吨计价，<strong>毛利极薄（2~5%）</strong></td></tr><tr><td><strong>什么时候</strong></td><td>电网招标集中在 Q4 与年初；数据中心随项目节奏</td></tr></tbody></table></div>
+<p><strong>⚠ 不构成创业机会</strong>：铜加工是<strong>资金密集型</strong>（铜价 10.8 万元/吨，囤货成本极高），<strong>个人和小团队做不了</strong>。<strong>唯一可做的是回收端的区域分拣</strong>，但毛利薄、需资质。</p>
+<h4 id="h-23">二、投资影响：谁被实质影响（<strong>非推荐</strong>）</h4>
+<blockquote><p>⚠ 仅为业务定位与传导路径分析，<strong>不构成买入/卖出建议，不预测股价</strong>。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>环节</th><th>受影响主体（按业务归类）</th><th>为什么受影响</th><th>财报里要验证什么</th></tr></thead><tbody><tr><td>上游</td><td>铜矿、铜冶炼</td><td>利润 +79.7%，但主要来自长单与加工费</td><td>铜精矿加工费 TC/RC、吨矿成本</td></tr><tr><td>中游</td><td>铜杆铜管、线缆、铜箔</td><td>需求旺盛但<strong>加工费被压</strong></td><td>加工费、开工率、应收账款</td></tr><tr><td>下游</td><td>电网设备、数据中心、电池</td><td>铜价高企推高成本</td><td>原材料占成本比重、能否顺价</td></tr><tr><td><strong>被挤压方</strong></td><td>中小线缆厂、非 AI 链的铜加工</td><td>铜价高位占用资金、加工费薄</td><td>经营性现金流、存货周转</td></tr></tbody></table></div>
+<ul><li><strong>相关大宗/期货</strong>：<strong>铜（CU）核心</strong>；<strong>铝（AL）替代品</strong>。注意：铜一手保证金约 <strong>7 万元</strong>，3 万本金<strong>买不起</strong>，只能记价格。</li><li><strong>概念板块</strong>：铜产业、线缆、数据中心、电网设备。</li></ul>
+<h4 id="h-27">三、个人生活：身边会变什么</h4>
+<ul><li><strong>能看到/用到的</strong>：<strong>家装电线、空调铜管的价格会跟着铜价走</strong> —— 装修预算里这一块敏感。</li><li><strong>价格与办事</strong>：铜价高位 → 家电（空调、冰箱）成本上升 → <strong>促销力度减弱</strong>。</li><li><strong>工作与收入</strong>：线缆厂、铜加工厂订单充足但<strong>利润被铜价和加工费两头挤</strong>，奖金不稳。</li></ul>
+<hr>
+<h4 id="h-30">四、跨链传导：还改变了哪个行业的关键参数</h4>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>传导链</th><th>受影响的行业与主体</th><th>关键参数</th></tr></thead><tbody><tr><td><strong>成本阀门</strong></td><td>AI/新能源用铜增加 → 铜价高位 → <strong>电网与数据中心建设成本上升</strong></td><td>电网、IDC、新能源车</td><td>铜价、单机柜铜用量、电网单位造价</td></tr><tr><td><strong>门槛变化</strong></td><td>铜价高位 → 中小加工厂资金门槛提高 → <strong>行业集中度上升</strong></td><td>中小线缆厂</td><td>存货占用资金、加工费差额</td></tr></tbody></table></div>
+<p><strong>关联信号</strong>：<strong>加强</strong> T-20261022-02（新业态用电→铜需求）；<strong>加强</strong> T-20261027-02（电子/算力→铜需求）；<strong>本条同时是 T-20261014-01（PPI 上游涨价）的现货侧校验</strong>。</p>
+<hr>
+<h3 id="h-34">行动清单</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>待办</th><th>记录日</th><th>计划日期</th><th>预计耗时</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td>每周一查铜月差（近月-主力）并记入期货系统，验证是否突破 +2%</td><td>2026-10-27</td><td>2026-11-02（6 天后）</td><td>10 分钟</td><td>待办</td></tr><tr><td>2</td><td>查 LME 与上期所铜库存近 3 周变化，填入时间线</td><td>2026-10-27</td><td>2026-10-30（3 天后）</td><td>20 分钟</td><td>待办</td></tr></tbody></table></div>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

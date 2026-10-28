@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信号周期分层</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：信号周期分层.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 15:42:23 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">信号周期分层（<strong>私有</strong>）</h1>
+<blockquote><p><strong>为什么分层</strong>：12 个月的时间窗对短线交易者太慢，但全套信号都改成短线又不现实。分层之后能看到 —— <strong>短周期机会其实有 5 条</strong>，且都不需要打板的速度。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>层</th><th>周期</th><th>条数</th><th>特点</th><th>怎么用</th></tr></thead><tbody><tr><td><strong>短</strong></td><td>1~4 周</td><td><strong>5</strong></td><td>事件驱动，有明确日期或月度数据</td><td>可以按日期提前布局，等事件兑现</td></tr><tr><td><strong>中</strong></td><td>1~3 月</td><td><strong>13</strong></td><td>数据驱动，等趋势确认</td><td>建仓后按月跟踪数据</td></tr><tr><td><strong>长</strong></td><td>3~12 月+</td><td><strong>12</strong></td><td>政策落地，链条长</td><td>只做龙头，等条件成熟（多数当前 0 仓位）</td></tr></tbody></table></div>
+<hr>
+<h2 id="h-4">短周期（5 条）</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>信号</th><th>时间跨度</th><th>为什么是短周期</th><th>置信度</th><th>状态</th></tr></thead><tbody><tr><td></td><td><a href="../信号/GDP季度回升.html">GDP季度回升</a></td><td>2~3 月</td><td>2027-01 中旬统计局发布 2026 全年与四季度数据</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/价格法修正与反内卷.html">价格法修正与反内卷</a></td><td>1~4 周</td><td>2026-12-20 查下次人大常委会议程，是明确日期</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/县域医共体信息化.html">县域医共体信息化</a></td><td>1~4 周</td><td>临泽项目预计 2026-11 采购，是明确的事件窗口</td><td>中高（2026-10-23 由「中」上调）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/新业态用电占比.html">新业态用电占比</a></td><td>1 月</td><td>国家能源局月度用电量（每月中下旬）</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/财政紧平衡与地方支出.html">财政紧平衡与地方支出</a></td><td>1 月</td><td>统计局月度中央vs地方项目投资增速</td><td>中</td><td>待验证</td></tr></tbody></table></div>
+<h2 id="h-6">中周期（13 条）</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>信号</th><th>时间跨度</th><th>为什么是中周期</th><th>置信度</th><th>状态</th></tr></thead><tbody><tr><td></td><td><a href="../信号/5500亿地方债结存限额.html">5500亿地方债结存限额</a></td><td>3~6 月</td><td>Q4 发行拨付，工作量到次年 Q1 显现</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/PPI再通胀与CPI传导.html">PPI再通胀与CPI传导</a></td><td>1~3 月</td><td>月度 PPI/CPI 剪刀差</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/中国航展与低空经济.html">中国航展与低空经济</a></td><td>3~6 月</td><td>等适航取证与试点城市空域开放</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/供热温暖工程三年行动.html">供热温暖工程三年行动</a></td><td>3~6 月</td><td>2027 年 2~4 月春季招标季</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/公共事业价格改革.html">公共事业价格改革</a></td><td>3~6 月</td><td>等城市调价听证会公告</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/国庆消费结构.html">国庆消费结构</a></td><td>1~3 月</td><td>11 月与 12 月社零通讯器材分项，补贴退坡后读数</td><td>中高（2026-10-20 由「中」上调）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/央行利率市场化改革.html">央行利率市场化改革</a></td><td>3~6 月</td><td>等央行贷款定价基准政策指引</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/文化遗产数字化.html">文化遗产数字化</a></td><td>3~6 月</td><td>省级普查招标多在 Q1~Q2</td><td>中高（2026-10-21 由「中」上调）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/新能源商用车电动化.html">新能源商用车电动化</a></td><td>1~2 月</td><td>月度重卡销量与渗透率</td><td>中高（2026-10-19 由「中」上调）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/新质生产力意见与纠偏.html">新质生产力意见与纠偏</a></td><td>3~6 月</td><td>等省级清退通报；清退后份额集中需时间</td><td>高（2026-10-15 由「中高」上调；2026-10-10 由「中」上调）</td><td>证据支持</td></tr><tr><td></td><td><a href="../信号/物流景气与六张网实物量.html">物流景气与六张网实物量</a></td><td>1~3 月</td><td>月度物流景气指数与基建数据</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/绿证跨境交易.html">绿证跨境交易</a></td><td>1~3 月</td><td>人大常委会 11 月审议可再生能源法修订</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/超长期特别国债与实物工作量.html">超长期特别国债与实物工作量</a></td><td>3~6 月</td><td>Q4~次年 Q1 形成实物工作量</td><td>中</td><td>待验证</td></tr></tbody></table></div>
+<h2 id="h-8">长周期（12 条）</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>信号</th><th>时间跨度</th><th>为什么是长周期</th><th>置信度</th><th>状态</th></tr></thead><tbody><tr><td></td><td><a href="../信号/专精特新赋能中心.html">专精特新赋能中心</a></td><td>12 月+</td><td>筹建期一年，2027H2 才授牌</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/中医药数智化转型.html">中医药数智化转型</a></td><td>6~12 月</td><td>规划全文未公开，落地更慢</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/具身智能与脑机接口落地.html">具身智能与脑机接口落地</a></td><td>6~12 月</td><td>等注册证获批与进院中标</td><td>中高（2026-10-15 由「中」上调）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/十五五补贴性职业技能培训.html">十五五补贴性职业技能培训</a></td><td>6~12 月</td><td>5000 万人次是五年目标</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/卫生与健康大会.html">卫生与健康大会</a></td><td>6~12 月</td><td>采购从设备转向系统是多年趋势</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/历史建筑修缮工程.html">历史建筑修缮工程</a></td><td>12 月+</td><td>1.5 万处是五年目标，单体小审批繁</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/国家数据集团与数据要素.html">国家数据集团与数据要素</a></td><td>6~12 月</td><td>数据交易本身仍早期</td><td>中偏低</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/康复护理扩容工程.html">康复护理扩容工程</a></td><td>6~12 月</td><td>床位与治疗师指标逐年落地</td><td>中高（2026-10-14 判据修正后维持）</td><td>证据支持（早期）</td></tr><tr><td></td><td><a href="../信号/教师AI素养全覆盖培训.html">教师AI素养全覆盖培训</a></td><td>6~12 月</td><td>等省级方案含专项经费</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/普惠养老价格分档.html">普惠养老价格分档</a></td><td>6~12 月</td><td>地方细则 1~3 月，合规采购更晚</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/社融结构与私人部门信贷.html">社融结构与私人部门信贷</a></td><td>6~12 月</td><td>私人部门信贷恢复要看年度</td><td>中</td><td>待验证</td></tr><tr><td></td><td><a href="../信号/科技兴商与商业智能体.html">科技兴商与商业智能体</a></td><td>6~12 月</td><td>18 条无财政资金，靠企业自发</td><td>中偏低</td><td>待验证</td></tr></tbody></table></div>
+<hr>
+<h2 id="h-11">短周期 5 条：具体可做什么</h2>
+<blockquote><p>这些都不需要盘中盯盘，只需要<strong>在特定日期前后看一次</strong>。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>信号</th><th>关键日期 / 数据</th><th>具体看什么</th><th>判断标准</th></tr></thead><tbody><tr><td>县域医共体信息化</td><td><strong>2026-11</strong></td><td>临泽县 144 万项目开标结果与中标方</td><td>若中标方是有县级案例的集成商，验证"驻场能力是关键"</td></tr><tr><td>新业态用电占比</td><td><strong>每月中下旬</strong></td><td>国家能源局全社会用电量</td><td>新业态增量占比是否仍在 70% 以上</td></tr><tr><td>财政紧平衡</td><td><strong>每月中旬</strong></td><td>统计局中央 vs 地方项目投资增速</td><td>差距是否继续扩大</td></tr><tr><td>价格法修正</td><td><strong>2026-12-20</strong></td><td>下次人大常委会议程</td><td>是否把价格法列入；列入则立法重启</td></tr><tr><td>GDP季度回升</td><td><strong>2027-01 中旬</strong></td><td>2026 全年与四季度 GDP</td><td>四季度单季是否 ≥4.5%</td></tr></tbody></table></div>
+<hr>
+<h2 id="h-15">打板模拟（纸上交易）</h2>
+<div class="table-wrap"><table><thead><tr><th>项</th><th>内容</th></tr></thead><tbody><tr><td>起始本金</td><td><strong>30,000 元</strong>（2026-10-23）</td></tr><tr><td>状态文件</td><td><code>tracking/模拟账户.json</code>（已 gitignore）</td></tr><tr><td>运行脚本</td><td><code>node scripts/paper-trade.mjs</code>（加 <code>--report</code> 只看报告）</td></tr><tr><td>数据源</td><td>东财涨停池（含连板数/封板时间/封板资金/炸板次数）+ 腾讯个股行情</td></tr></tbody></table></div>
+<h3 id="h-17">固定规则（不可事后修改）</h3>
+<pre><code>标的：当日涨停池中筛选
+  · 连板数 1~2（首板或二板，不追高位）
+  · 炸板次数 = 0（封住了没打开）
+  · 首次封板时间 ≤ 10:00（早封板＝强势）
+  · 成交额 &gt; 5000 万（低于此视为买不进，缩量一字板）
+  · 排除 ST、排除北交所（涨跌幅规则不同）
+买入：按「封板资金」降序取第一，以涨停价（收盘价）成交
+卖出：次日开盘价卖出（模拟"隔日冲高卖"）
+仓位：单笔最大 30%（约 9,000 元），同时只持 1 只
+成本：往返 0.15%（印花税 0.05% + 佣金 + 过户费）
+记录：每笔记 代码/名称/连板/封板资金/买入价/卖出价/盈亏/持有天数</code></pre>
+<h3 id="h-19">这个模拟的三个局限（必须记住）</h3>
+<ol><li><strong>不是真打板</strong>：真打板要在盘中排队，这里简化为收盘后按涨停价成交。<strong>排队买不到的情况无法模拟</strong>（只能用成交额下限做粗略过滤）。</li><li><strong>无法判断封单质量</strong>：真实的封单量在盘后会变化，这里用封板资金代替。</li><li><strong>样本极小</strong>：每天 1 笔，3 个月约 60 笔 —— 统计上勉强够看胜率，但不够看策略优劣。<strong>这是"够不够格继续做"的筛选，不是"证明能赚钱"。</strong></li></ol>
+<h3 id="h-21">三个月后要算的三个数</h3>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>及格线</th><th>说明</th></tr></thead><tbody><tr><td><strong>胜率</strong></td><td><strong>&gt; 60%</strong></td><td>低于 50% 直接放弃</td></tr><tr><td><strong>盈亏比</strong></td><td><strong>&gt; 1.5</strong></td><td>赚 5% 亏 7.5% 是 1:1.5</td></tr><tr><td><strong>扣成本后月收益</strong></td><td><strong>&gt; 3%</strong></td><td>扣掉 0.15%/笔的摩擦</td></tr></tbody></table></div>
+<blockquote><p><strong>三个里有两个不达标，就说明这条路对你关着</strong> —— 而且这 3 个月省下了你未来的钱。</p></blockquote>
+<hr>
+<h2 id="h-25">结论：12 个月不是必须的</h2>
+<p>你说"12 个月太长了"——<strong>这个批评部分成立</strong>。分层的实际结果是：</p>
+<ul><li><strong>5 条是 1~4 周</strong>，有明确日期，不需要盯盘</li><li><strong>13 条是 1~3 月</strong>，按月看数据</li><li><strong>12 条才是 3~12 月</strong>（政策落地型）</li></ul>
+<p>所以真实情况是：<strong>短周期机会本来就存在，只是我以前没标出来。</strong> 不需要为了"快"去做打板 —— 先把这 5 条短周期用起来，再谈要不要打板。</p>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

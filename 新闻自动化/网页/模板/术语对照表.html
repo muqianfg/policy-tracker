@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>术语对照表</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：术语对照表.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 20:34:34 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">术语对照表（说人话版）</h1>
+<blockquote><p><strong>为什么有这个文件</strong>：这个项目面向普通人。<strong>任何人话表达里第一次出现专业词，必须先用一句话解释它是什么、跟普通人有什麼关系，之后才能用简称。</strong></p><p>用法：写日报、写视频脚本、写公开摘要时，对照本表；表里没有的新词，按同样标准补进去。</p></blockquote>
+<h2 id="h-2">三档解释规则（2026-10-16 确立）</h2>
+<p>同一个专业词，在<strong>三个不同场景</strong>里的解释规则不一样 —— 因为读者的处境不同：</p>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>规则</th><th>为什么</th></tr></thead><tbody><tr><td><strong>日报</strong> <code>日报/</code></td><td><strong>当天第一次出现就解释</strong></td><td>日报是<strong>独立</strong>的一天，读者可能只看这一天</td></tr><tr><td><strong>信号档案</strong> <code>信号/</code></td><td><strong>整个档案第一次出现解释，之后不再解释</strong></td><td>档案是<strong>累积</strong>的，从标题读到末尾只会遇到一次</td></tr><tr><td><strong>口播稿</strong></td><td><strong>讲到哪就解释到哪</strong> —— 不管之前解释过几次</td><td>视频是<strong>线性的</strong>，观众不可能往前翻；每一期都是新观众</td></tr></tbody></table></div>
+<blockquote><p>一句话：<strong>文字内容按「第一次」算，视频内容按「每一次」算。</strong></p><p>视频里解释的时机很重要：<strong>讲到那个词的时候顺手解释</strong>，不要提前堆在开头（那样观众记不住，也打断了节奏）。</p></blockquote>
+<h3 id="h-6">信号档案里的解释放哪</h3>
+<p>两个位置任选，优先第一个：</p>
+<ol><li><strong>标题里</strong>（最显眼，且不打断正文）—— 例：<code># T-20261015-01 · 绿证（绿色电力证书：证明「我用的电是绿电」的一张凭证）跨境交易 → …</code></li><li><strong>正文第一次出现处</strong> —— 格式：<code>以旧换新（买新的、旧的国家给补贴）补贴资金节前落地</code></li></ol>
+<p>每个信号文件顶部都有一行术语指引，指向本表。</p>
+<h2 id="h-10">一条铁律</h2>
+<p>❌ <strong>错误</strong>：「PPI 连涨七个月，而 CPI 只有 0.9%」 ✅ <strong>正确</strong>：「<strong>工厂的出厂价格</strong>（专业叫法是 PPI）已经连涨七个月……而<strong>老百姓买东西的价格</strong>（CPI）只涨了 0.9%」</p>
+<p><strong>判断标准</strong>：把这句话念给一个不看财经新闻的人听，他能听懂吗？听不懂就是没解释。</p>
+<hr>
+<h2 id="h-14">一、经济数据类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>CPI</strong>（居民消费价格指数）</td><td><strong>老百姓买东西的价格</strong>涨了多少</td><td>决定你的钱贬值有多快、存款利息够不够抵</td></tr><tr><td><strong>PPI</strong>（工业生产者出厂价格指数）</td><td><strong>工厂出货的价格</strong>涨了多少</td><td>它是物价的"上游"：工厂涨价，早晚会传到货架上（也可能先压死中间商）</td></tr><tr><td><strong>社融</strong>（社会融资规模）</td><td><strong>整个社会借了多少钱</strong>（含银行贷款、政府发债、企业发债等）</td><td>借钱多说明经济在扩张；但要拆开看<strong>是谁在借</strong></td></tr><tr><td><strong>M1 / M2</strong></td><td><strong>M2 = 所有存款的总量；M1 = 其中能马上花的活钱</strong></td><td>两者差距大，说明钱在账上趴着没流动</td></tr><tr><td><strong>CPI 与 PPI 剪刀差</strong></td><td><strong>工厂在涨价、商店涨不动</strong></td><td>夹在中间的企业最难受：成本升、售价提不上去</td></tr><tr><td><strong>住户存款</strong></td><td><strong>老百姓存进银行的钱</strong></td><td>存款猛增而利率很低，说明大家不敢花、也没好地方投</td></tr><tr><td><strong>广义货币 / 狭义货币</strong></td><td>同 M2 / M1</td><td>—</td></tr></tbody></table></div>
+<h2 id="h-16">二、财政与债务类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>特别国债</strong></td><td><strong>国家为了特定用途单独借的一笔钱</strong>（不算常规预算）</td><td>它的用途就是接下来钱的流向</td></tr><tr><td><strong>一般债 / 专项债</strong></td><td>地方政府借的两种钱：<strong>一般债补日常开支，专项债干具体项目</strong></td><td>专项债投向哪，哪就有工程和订单</td></tr><tr><td><strong>结存限额</strong></td><td><strong>以前批准但没用完的借钱额度</strong></td><td>拿出来用=不新增额度也能多花钱</td></tr><tr><td><strong>超长期国债</strong></td><td>借期特别长的国债（10 年以上）</td><td>反映国家对长期利率的判断</td></tr><tr><td><strong>化债 / 清欠</strong></td><td><strong>把欠企业、欠工程队的钱还上</strong></td><td>如果你或你的客户被政府/国企欠款，这直接关系到回款</td></tr><tr><td><strong>财政加杠杆</strong></td><td><strong>政府多借钱来花</strong></td><td>与"企业/居民少借钱"相对照，能看出谁在撑经济</td></tr></tbody></table></div>
+<h2 id="h-18">三、金融与市场类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>社融存量 / 增量</strong></td><td><strong>累计借了多少钱 / 这一段时间新借了多少</strong></td><td>存量看规模，增量看势头</td></tr><tr><td><strong>直接融资 / 间接融资</strong></td><td><strong>直接融资=企业自己发债发股票拿钱；间接融资=通过银行借钱</strong></td><td>前者强说明市场在起作用，后者弱说明银行在收缩</td></tr><tr><td><strong>TCO</strong>（全生命周期成本）</td><td><strong>买来 + 用 + 修 + 报废，总共花多少钱</strong></td><td>判断电动车划不划算，不能只看买车价</td></tr><tr><td><strong>REITs</strong></td><td><strong>把一栋楼、一条公路的收租权拆成小份卖给普通人</strong></td><td>让普通人能投资基础设施分红</td></tr><tr><td><strong>集采</strong>（集中带量采购）</td><td><strong>国家替全国医院统一砍价买药买耗材</strong></td><td>药价降，但药企利润被压</td></tr><tr><td><strong>LPR</strong></td><td><strong>银行贷款的基准利率报价</strong></td><td>决定房贷、经营贷利息高低</td></tr></tbody></table></div>
+<h2 id="h-20">四、医疗与民生类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>医共体</strong>（紧密型县域医共体）</td><td><strong>把县医院、乡镇卫生院、村卫生室绑成一个整体，让农民在县里就能看好病</strong></td><td>决定基层能不能看上病、也决定医疗资源往哪投</td></tr><tr><td><strong>分级诊疗</strong></td><td><strong>小病在社区、大病去大医院，别都挤三甲</strong></td><td>靠的是转诊系统，不是口号</td></tr><tr><td><strong>强基工程</strong>（医疗卫生强基工程）</td><td><strong>给基层医院（县、乡、村）补短板：人、设备、钱</strong></td><td>基层医院是主要采购方</td></tr><tr><td><strong>防治康管全链条</strong></td><td><strong>从预防、治疗、康复到长期管理，一条龙</strong></td><td>康复和慢病管理是个人可进入的领域</td></tr><tr><td><strong>康复护理</strong></td><td><strong>大病或手术之后的恢复、长期照护</strong></td><td>床位、治疗师都被政策点名要扩</td></tr><tr><td><strong>"一老一小"</strong></td><td><strong>老人和小孩的健康服务</strong></td><td>政策与采购的固定优先项</td></tr><tr><td><strong>上门服务费</strong></td><td><strong>医护人员上门做护理可以单独收费</strong></td><td>网约护理、居家照护能定价变现的依据</td></tr></tbody></table></div>
+<h2 id="h-22">五、产业与政策类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>新质生产力</strong></td><td><strong>靠技术和效率赚钱，而不是靠堆人力堆资源</strong></td><td>资源会往技术型行业倾斜</td></tr><tr><td><strong>专精特新</strong></td><td><strong>在某个细分领域做得特别好的中小企业</strong></td><td>政策支持的常见对象</td></tr><tr><td><strong>内卷式竞争 / 无序非理性竞争</strong></td><td><strong>大家都不赚钱地互相压价</strong></td><td>被点名整治后，龙头受益、靠低价活的小厂受损</td></tr><tr><td><strong>以旧换新</strong></td><td><strong>买新的，旧的国家给补贴</strong></td><td>家电、汽车销量的直接推手</td></tr><tr><td><strong>设备更新</strong></td><td><strong>企业换新机器，国家给支持</strong></td><td>工业设备订单来源</td></tr><tr><td><strong>六张网</strong></td><td><strong>水网、电网、算力网、通信网、地下管网、物流网</strong></td><td>今年基建投资的总框架，超 7 万亿规模</td></tr><tr><td><strong>实物工作量</strong></td><td><strong>真的开工干活了，不只是签了约</strong></td><td>判断基建真假的标准：看花了多少钱、货有没有动</td></tr><tr><td><strong>耐心资本 / 长期资金</strong></td><td><strong>不急着套现、能拿五年十年的钱</strong>（如社保、保险资金）</td><td>决定股市里有没有稳定买盘</td></tr><tr><td><strong>低空经济</strong></td><td><strong>把 1000 米以下的天空用起来</strong>（无人机、飞行汽车等）</td><td>配套基建可能先于整机放量</td></tr><tr><td><strong>eVTOL</strong>（电动垂直起降飞行器）</td><td><strong>能垂直起飞的电动小飞机</strong></td><td>低空经济的主力机型</td></tr><tr><td><strong>具身智能</strong></td><td><strong>有身体的人工智能</strong>（机器人）</td><td>与脑机接口同为被点名的未来产业</td></tr><tr><td><strong>脑机接口</strong></td><td><strong>把大脑信号直接连到机器上</strong></td><td>康复医疗是最先落地的场景</td></tr><tr><td><strong>丝路电商</strong></td><td><strong>面向"一带一路"国家的跨境电商</strong></td><td>外贸新渠道</td></tr></tbody></table></div>
+<h2 id="h-24">六、技术类</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>一句话人话</th><th>为什么跟普通人有关</th></tr></thead><tbody><tr><td><strong>HIS</strong>（医院信息系统）</td><td><strong>医院里的挂号、收费、病历系统</strong></td><td>医院信息化采购的主要标的</td></tr><tr><td><strong>影像云 / 检查互认</strong></td><td><strong>拍的片子存到网上，换医院不用重拍</strong></td><td>分级诊疗的技术前提</td></tr><tr><td><strong>SaaS</strong></td><td><strong>不用装软件，上网就能用的付费服务</strong></td><td>小微企业常见采购形式</td></tr><tr><td><strong>TTS</strong>（文本转语音）</td><td><strong>把文字念出来的人工声音</strong></td><td>做视频配音的常用工具</td></tr><tr><td><strong>CDMO / CRO</strong></td><td><strong>帮药企和器械公司做研发与生产的第三方公司</strong></td><td>创新器械上市链条上的服务商</td></tr></tbody></table></div>
+<hr>
+<h2 id="h-27">维护规则</h2>
+<ul><li>每天运行日报时，若出现本表未收录的专业词，<strong>必须</strong>：① 在当天日报里先解释再用；② 把该词补进本表。</li><li>视频脚本里第一次出现专业词，写成「<strong>人话叫法</strong>（专业叫法是 XX）」的格式，之后统一用简称。</li><li>本表是公开文件，任何看到的人都可以指出没解释清楚的词。</li></ul>
+<h2 id="h-29">2026-10-27 补充</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>人话解释</th></tr></thead><tbody><tr><td><strong>拉动 X 个百分点</strong></td><td>整锅汤变咸了 15.5 度，其中 9.6 度是这一把盐带来的 —— 即"整体增长里有多少是这个行业贡献的"</td></tr><tr><td><strong>市场化交易电价</strong></td><td>电厂和大用户直接谈价，不按政府定的标杆价卖电，谈出来的价通常更低</td></tr><tr><td><strong>装机容量</strong></td><td>发电设备"最大出力"的总和，不是发电量；20 亿千瓦约等于 90 个三峡</td></tr><tr><td><strong>消纳</strong></td><td>发出来的电能被电网吸收多少。风光看天吃饭，装机再多没风没光也不发电</td></tr><tr><td><strong>重大水利工程</strong></td><td>国家层面立项的大型水利项目，单个投资通常几十亿到上百亿，需国家发改委批</td></tr></tbody></table></div>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

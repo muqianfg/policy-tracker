@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新闻联播 → 行业影响 → 可验证预测</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：README.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 20:33:52 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">新闻联播简报 · 政策趋势跟踪</h1>
+<h2 id="h-1">这个文件夹里有什么</h2>
+<div class="table-wrap"><table><thead><tr><th>文件夹</th><th>放什么</th><th>什么时候看</th></tr></thead><tbody><tr><td><strong>日报/</strong></td><td>每天的新闻联播简报</td><td>想回顾某一天</td></tr><tr><td><strong>信号/</strong></td><td>每条追踪中的判断（含证据时间线、行动清单）</td><td>想知道某个事件进展</td></tr><tr><td><strong>追踪/</strong></td><td>总日志、投资台账、周期分层</td><td>想看全部脉络</td></tr><tr><td><strong>模板/</strong></td><td>分析标准、日报模板、术语表</td><td>想按同样标准写</td></tr><tr><td><strong>主题簇/</strong></td><td>同主题多条信号的合并判断</td><td>想看一类事</td></tr><tr><td><strong>视频/</strong></td><td>成片、脚本、素材、工具、制作文档（<strong>单列</strong>）</td><td>想做视频</td></tr><tr><td><strong>工具/</strong></td><td>抓取、校验、推送脚本</td><td>想自己跑</td></tr></tbody></table></div>
+<hr>
+<h1 id="h-4">新闻联播 → 行业影响 → 可验证预测</h1>
+<p>一个每天自动运行的<strong>公开政策分析 + 预测跟踪</strong>系统。</p>
+<p>它做的事情很简单：每天读《新闻联播》，把政策术语翻译成人话，推演它对行业和个人的影响，然后<strong>写下一个可被证伪的判断</strong>，并在之后的每一天回来核对 —— 对了、错了、还是没有下文，全部留痕。</p>
+<hr>
+<h2 id="h-8">为什么要"写下可被证伪的判断"</h2>
+<p>绝大多数新闻解读的问题不是不专业，而是<strong>不可检验</strong>：</p>
+<ul><li>"XX 行业有前景" —— 什么时候？什么信号？错了怎么算？</li><li>"国家支持消费" —— 说了等于没说。</li></ul>
+<p>这个项目要求每条判断必须包含：<strong>明确结论 + 依据（可追溯的原文/数据）+ 验证方式（盯什么指标）+ 时间窗 + 置信度</strong>。 然后到时间回来对账。<strong>判断错了也保留原答案，只能追加修正说明。</strong></p>
+<blockquote><p>一个敢公开对账的预测记录，比一百条永远正确的评论更有价值。</p></blockquote>
+<h2 id="h-13">一条判断长什么样</h2>
+<pre><code>【答案 ID】T-20261009-01
+【问题】《关于发展新质生产力的意见》印发后，最先出现可核查落地的
+        会是"新增支持"还是"收紧整顿"？
+【我的答案】收紧整顿先到。未来 6 个月内会先出现以"清理借新质生产力
+        名义套取政策/补贴、盲目投资项目"为名的核查与叫停案例……
+【依据】文件把"追责"和"严禁滥用"写在了与"支持"同等显著的位置
+【验证方式】省级/地市级项目复核、暂停、清理通报；补贴追回与问责案例
+【时间窗】6 个月
+【趋势判断】长期向上，短期"先规范、后铺开"
+【置信度】中</code></pre>
+<p><strong>第二天的进展</strong>：国家发改委就《意见》答记者问，明确"严禁借发展新质生产力之名搞恶性招商引资、盲目'跟风'上项目、乱'烧钱'"，并点名两类被纠偏的做法。 → 证据支持，置信度由「中」上调为「中高」。<strong>但按自定标准只上调一档</strong> —— 因为这是执行信号，不是订单证据。</p>
+<h2 id="h-16">每日简报索引</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>当天最值得看的一条</th></tr></thead><tbody><tr><td><a href="日报/2026-10-27.html">2026-10-27</a></td><td>工业利润 +15.5% 但电力全行业亏 -14.3%：62% 的增长是电子一个行业赚的，上游涨价没传到消费端</td></tr><tr><td><a href="日报/2026-10-26.html">2026-10-26</a></td><td>自我修正：国债 385 亿装在"旧改电梯"里，不计入基建口径；非金融类对外投资 -12.8% 是真实收缩</td></tr><tr><td><a href="日报/2026-10-25.html">2026-10-25</a></td><td>造船新接订单 +163%、全球份额 81.8%；而固投 -7.2%、基建 -4.2% 打了我的判断一巴掌，已下调置信度</td></tr><tr><td><a href="日报/2026-10-24.html">2026-10-24</a></td><td>首个区域电力市场正式运行：五省区同台竞价、新能源成第一大电源，储能商业模式确立；巡视覆盖教育部与 31 所高校</td></tr><tr><td><a href="日报/2026-10-23.html">2026-10-23</a></td><td>财政三个数字解释一切：收入 +5.1%、支出只 +1%、土地出让 -27.9% —— 钱没变少，是花法变了；县域医共体项目验证成功</td></tr><tr><td><a href="日报/2026-10-22.html">2026-10-22</a></td><td>9 月全国多用电量近八成来自算力与充换电两个新业态；人大 11 月议程有金融法却没价格法 —— 我此前的时点假设错了</td></tr><tr><td><a href="日报/2026-10-21.html">2026-10-21</a></td><td>央行宣布「存贷款基准利率将退出」，隔夜利率成主要政策利率；住建部要给 1.5 万处历史建筑做修缮</td></tr><tr><td><a href="日报/2026-10-20.html">2026-10-20</a></td><td>国家数据集团在雄安成立 —— 数据要素有了国家级市场主体；首个文化遗产五年规划要建「全国资源总目录」</td></tr><tr><td><a href="日报/2026-10-19.html">2026-10-19</a></td><td>前三季度 GDP 4.6%，但二季度 4.3% 是低点、三季度回升到 4.5%；新能源重卡渗透率已达 50%，超 2030 年 40% 目标</td></tr><tr><td><a href="日报/2026-10-18.html">2026-10-18</a></td><td>1.3 万亿超长期特别国债发行收官，钱已全部分下 —— 重心从「发债」转向「花钱」；供热「温暖工程」覆盖 15 省、为期三年</td></tr><tr><td><a href="日报/2026-10-17.html">2026-10-17</a></td><td>服务出口增速是进口的近 4 倍，知识密集型已占出口过半；中医药被要求「数智化」—— 把经验变成能计算的东西</td></tr><tr><td><a href="日报/2026-10-16.html">2026-10-16</a></td><td>「低价无序竞争」被写进价格法修正草案 —— 反内卷从产业政策升到法律层面；养老服务收费被分成三类、必须进清单</td></tr><tr><td><a href="日报/2026-10-15.html">2026-10-15</a></td><td>储能项目真的在被清退（河北取消 16 个、山西清退 31 个，落地率不足 15%）；绿证跨境交易首单落地 —— 绿电成了可出口的商品</td></tr><tr><td><a href="日报/2026-10-14.html">2026-10-14</a></td><td>被「物价平稳」掩盖的转折：工厂出厂价（PPI）连涨 7 个月、9 月 +5.0%；而整个社会借的钱（社融）靠政府发债撑（+13.7%），企业贷款只有 +4.8%</td></tr><tr><td><a href="日报/2026-10-12.html">2026-10-12</a></td><td>10 年期国债 1.68% vs 一年期存款 0.95% —— 利差不到 0.8 个百分点，低利率被数据坐实</td></tr><tr><td><a href="日报/2026-10-11.html">2026-10-11</a></td><td>水利前 9 月花掉 7950 亿、物流景气指数连升 5 个月 —— "实物工作量"首次在数据上被确认</td></tr><tr><td><a href="日报/2026-10-10.html">2026-10-10</a></td><td>"十五五"就业社保发布会：补贴培训 5000 万人次、发证 4000 万人次；AI 就业行动被单独立项</td></tr><tr><td><a href="日报/2026-10-09.html">2026-10-09</a></td><td>《关于发展新质生产力的意见》：最狠的不是支持条款，是追责条款</td></tr><tr><td><a href="日报/2026-10-08.html">2026-10-08</a></td><td>医疗康复护理扩容提升工程：一份带硬指标（每千人口 0.48 张床位）的 5 年采购清单</td></tr></tbody></table></div>
+<blockquote><p>索引由自动化流程维护：每期新日报生成时自动追加一行。</p></blockquote>
+<h2 id="h-19">阅读提示：专业词都会先解释</h2>
+<p>这份记录是给普通人看的。<strong>任何专业词第一次出现，都会先用一句话解释它是什么</strong>，之后才用简称（例如「<strong>工厂的出厂价格</strong>（PPI）」）。完整的对照表见 <a href="模板/术语对照表.html">templates/术语对照表.md</a>，收录 44 个常用词的人话解释。</p>
+<h2 id="h-21">附带一个 AI Skill</h2>
+<p>仓库里带了一份 <strong>DSH / Claude Code 风格的 Skill</strong>：<code>.dsh/skills/news-policy-tracking/SKILL.md</code>。</p>
+<p>它把这套系统的<strong>五条铁律、文件地图、每日流程、更新信号档案的步骤、以及踩过的坑</strong>固化成一个可被 AI 直接加载的指令文件 —— 任何支持 skill 的 agent 读它就能接手维护，不需要从头解释。</p>
+<blockquote><p>为什么放在这里：这套系统的规则已经迭代了七八轮（说人话、只追加带日期、个人影响同步更新、置信度一次最多升一档……），靠人记会漏。<strong>规则写进模板，模板写进 skill，才不会重犯。</strong></p></blockquote>
+<h2 id="h-25">目录结构</h2>
+<div class="table-wrap"><table><thead><tr><th>路径</th><th>说明</th></tr></thead><tbody><tr><td><code>daily/YYYY-MM-DD.md</code></td><td><strong>每日简报</strong>：当天《新闻联播》完整条目单 + 三件大事 + 行业影响 + 今日答案 + 视频候选</td></tr><tr><td><code>signals/&lt;事件名&gt;.md</code></td><td><strong>文件名即追踪的事件名</strong>。每条信号一个文件：判断 + 验证方式 + 证据时间线 + <strong>个人影响与行动项（带日期）</strong> + 复盘</td></tr><tr><td><code>signals/_模板.md</code></td><td>新信号的文件模板</td></tr><tr><td><code>templates/analysis-playbook.md</code></td><td>解读方法论：四条铁律、术语翻译规则、四层影响框架、答案写法、跟踪纪律</td></tr><tr><td><code>templates/术语对照表.md</code></td><td><strong>术语对照表（说人话版）</strong>：44 个专业词的人话解释</td></tr><tr><td><code>.dsh/skills/news-policy-tracking/</code></td><td><strong>AI Skill</strong>：把这套系统的规则与流程固化成 agent 可加载的指令</td></tr><tr><td><code>templates/daily-template.md</code></td><td>每日简报的结构模板</td></tr><tr><td><code>scripts/fetch-lianbo.mjs</code></td><td>抓取《新闻联播》官方条目单（四级数据源降级）</td></tr><tr><td><code>scripts/new-daily.mjs</code></td><td>生成当天简报骨架</td></tr><tr><td><code>scripts/session-health.mjs</code></td><td>会话上下文健康度监控（控制 token 成本用）</td></tr><tr><td><code>README.md</code></td><td>运行手册与已知坑</td></tr></tbody></table></div>
+<h3 id="h-27">一条信号文件里有什么</h3>
+<div class="table-wrap"><table><thead><tr><th>区块</th><th>内容</th></tr></thead><tbody><tr><td>头部表格</td><td>ID、状态、趋势判断、时间窗、置信度、立档日、最后更新、证据条数</td></tr><tr><td>一、问题</td><td>一句话，必须<strong>可被证伪</strong></td></tr><tr><td>二、我的答案</td><td>明确判断：会发生什么、在哪个行业、什么节奏</td></tr><tr><td>三、验证方式</td><td>盯什么指标、出现什么算支持、什么算推翻</td></tr><tr><td>四、证据时间线</td><td><strong>只追加</strong>。每条形如：日期 · 来源 · 事实 · 我的解读 · 对判断的影响（维持/增强/减弱/推翻）</td></tr><tr><td>五、复盘</td><td>时间窗到期或被验证/推翻时填写</td></tr><tr><td>六、修正记录</td><td>置信度或判断变更的原因，保留原始判断</td></tr><tr><td>七、对我的个人影响与行动项</td><td>这条信号对我意味着什么，以及<strong>带具体日期的行动清单</strong>（计划日期 / 预计耗时 / 状态）</td></tr></tbody></table></div>
+<blockquote><p>设计要点：<strong>个人影响不写在日报里，而是挂在对应的信号上</strong> —— 因为"这件事对我意味着什么"本来就属于那条信号，挂在信号下才能带日期追踪执行。日报因此更干净，只保留条目单、三件大事、行业影响、今日答案与视频候选。</p></blockquote>
+<h2 id="h-30">方法论核心</h2>
+<p><strong>四层影响推演</strong>（每条新闻都要走完）：</p>
+<pre><code>第 1 层 事实层：发生了什么（量、时间、主体）
+第 2 层 传导层：钱和政策沿着哪条链子往下走（谁付钱 → 谁接单 → 谁受益/受损）
+第 3 层 行业层：直接受益 / 间接受益 / 被挤压
+第 4 层 个人层：对"我"的时间、钱、技能、资源的具体影响 → 落到"下周可做的三件事"</code></pre>
+<p><strong>什么才算"新证据"</strong>（防止自己骗自己）：</p>
+<div class="table-wrap"><table><thead><tr><th>算</th><th>不算</th></tr></thead><tbody><tr><td>新的资金、订单、招标、价格</td><td>又一次会议报道</td></tr><tr><td>政策文件、产能变化</td><td>领导表态、例行宣传</td></tr><tr><td>企业实际动作</td><td>被更高层文件"点名确认方向"（可在日志注明"政策确认，非订单证据"，但<strong>不得据此上调置信度</strong>）</td></tr></tbody></table></div>
+<p><strong>只追加，不改写</strong>：历史判断永不修改。要修正就另起一条，保留原答案与错误。</p>
+<h2 id="h-36">数据来源</h2>
+<ul><li>《新闻联播》条目单：取自央视官方页面（<code>tv.cctv.com</code>），四级降级：页面 meta → 页面正文"本期节目主要内容" → 栏目页 → 兜底文件</li><li>政策原文核对：中国政府网（gov.cn）、各部委官网</li><li>统计数据：税务总局增值税发票数据、国新办发布会、统计局</li></ul>
+<h2 id="h-38">免责声明</h2>
+<ul><li>本项目是<strong>个人研究与方法论实验</strong>，所有内容<strong>不构成任何投资建议</strong>，也不构成对任何行业、公司、证券的推荐。</li><li>所有判断均为作者个人观点，可能出错，且<strong>已如实保留错误记录</strong>。</li><li>作者不具备证券投资咨询资质。读者据此作出的任何决策，风险自负。</li><li>内容基于公开信息整理分析，若涉及版权或事实错误，欢迎指出。</li><li>本项目部分内容由 AI 辅助生成（抓取、整理、初稿），<strong>所有判断与结论由人工复核后发布</strong>。</li></ul>
+<h2 id="h-40">许可</h2>
+<p>方法论与代码部分欢迎参考使用（建议注明来源）。具体判断内容请勿断章取义引用。</p>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

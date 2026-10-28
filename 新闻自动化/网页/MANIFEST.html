@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MANIFEST</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：MANIFEST.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/27 20:33:52 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">信号总表（MANIFEST）</h1>
+<blockquote><p>这是<strong>每次运行唯一必读的文件</strong>。每条信号单独一个文件放在 <code>signals/</code> 下，<strong>文件名即追踪的事件名</strong>；只有在需要时（有新证据 / 状态要更新 / 有行动项到期）才去读它。</p><p><strong>术语规则</strong>：每个信号档案都有「术语小词典」区块，一次讲清该档案用到的专业词；<code>scripts/check-consistency.mjs</code> 会检查「声明了术语解释但实际没有」的情况。</p><p>上次更新：2026-10-27 20:30（正常触发）</p></blockquote>
+<h2 id="h-2">状态说明</h2>
+<p><code>待验证</code> · <code>证据支持（早期）</code> · <code>证据支持</code> · <code>证据反对</code> · <code>超期未验证</code> · <code>已修正</code> · <code>冷却</code></p>
+<h2 id="h-4">总表</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>追踪事件</th><th>文件</th><th>状态</th><th>趋势</th><th>时间窗</th><th>置信度</th><th>证据</th><th>行动项（待办/全部）</th><th>最近到期</th></tr></thead><tbody><tr><td>T-20261008-01</td><td>康复护理扩容工程 → 设备采购放量</td><td><a href="信号/康复护理扩容工程.html">康复护理扩容工程.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上（分批、区域不均）</td><td>12M</td><td><strong>中高</strong></td><td>4</td><td>4/5</td><td>2026-11-10</td></tr><tr><td>T-20261008-02</td><td>具身智能与脑机接口落地形态</td><td><a href="信号/具身智能与脑机接口落地.html">具身智能与脑机接口落地.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上，格局快速分化</td><td>12M</td><td><strong>中高</strong></td><td>4</td><td>3/4</td><td>2026-11-02</td></tr><tr><td>T-20261009-01</td><td>新质生产力意见：先规范整顿后铺开</td><td><a href="信号/新质生产力意见与纠偏.html">新质生产力意见与纠偏.md</a></td><td><strong>证据支持</strong></td><td>长期向上、短期先规范后铺开</td><td>6M</td><td><strong>高</strong></td><td>5</td><td>4/4</td><td>2026-11-09</td></tr><tr><td>T-20261009-02</td><td>5500 亿地方债结存限额用在哪</td><td><a href="信号/5500亿地方债结存限额.html">5500亿地方债结存限额.md</a></td><td>待验证</td><td>稳而不刺激</td><td>6M</td><td>中</td><td>3</td><td>3/4</td><td>2026-11-12</td></tr><tr><td>T-20261010-01</td><td>"十五五"补贴培训 5000 万人次 → 谁拿到钱</td><td><a href="信号/十五五补贴性职业技能培训.html">十五五补贴性职业技能培训.md</a></td><td>待验证</td><td>向上（分批、区域不均）</td><td>12M</td><td>中</td><td>5</td><td>5/6</td><td>2026-10-25</td></tr><tr><td>T-20261010-02</td><td>国庆消费：3C 是脉冲还是结构</td><td><a href="信号/国庆消费结构.html">国庆消费结构.md</a></td><td><strong>证据支持（早期）</strong></td><td>商品是脉冲（家电大盘在补贴中仍 -9.7%）、服务是真实需求</td><td>6M</td><td><strong>中高</strong></td><td>2</td><td>3/3</td><td>2026-11-20</td></tr><tr><td>T-20261011-01</td><td>物流景气扩张 ← 六张网实物工作量</td><td><a href="信号/物流景气与六张网实物量.html">物流景气与六张网实物量.md</a></td><td>待验证</td><td>向上但温和（投资拉动型）</td><td>6M</td><td>中</td><td>3</td><td>3/3</td><td>2026-11-11</td></tr><tr><td>T-20261011-02</td><td>教师 AI 素养全覆盖培训 → 教育信息化采购</td><td><a href="信号/教师AI素养全覆盖培训.html">教师AI素养全覆盖培训.md</a></td><td>待验证</td><td>向上（行政任务驱动，待省级方案）</td><td>12M</td><td>中</td><td>2</td><td>3/3</td><td>2026-12-21</td></tr><tr><td>T-20261012-01</td><td>新能源商用车电动化 → 渗透率提升速度</td><td><a href="信号/新能源商用车电动化.html">新能源商用车电动化.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上，商用车空间最大（重卡已 50%）</td><td>12M</td><td><strong>中高</strong></td><td>2</td><td>3/4</td><td>2027-01-19</td></tr><tr><td>T-20261012-02</td><td>县域医共体信息化 → 采购放量</td><td><a href="信号/县域医共体信息化.html">县域医共体信息化.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上（建体系→通数据；已见真实项目 144/290 万）</td><td>12M</td><td><strong>中高</strong></td><td>3</td><td>3/3</td><td>2026-11-23</td></tr><tr><td>T-20261013-01</td><td>卫生与健康大会 → 采购从设备转向系统与服务</td><td><a href="信号/卫生与健康大会.html">卫生与健康大会.md</a></td><td>待验证</td><td>向上（服务与系统）</td><td>12M</td><td>中</td><td>3</td><td>3/3</td><td>2026-11-03</td></tr><tr><td>T-20261013-02</td><td>中国航展 → 低空经济订单落地形态</td><td><a href="信号/中国航展与低空经济.html">中国航展与低空经济.md</a></td><td>待验证</td><td>向上（配套先行、整机后至）</td><td>6M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-10-27</td></tr><tr><td>T-20261014-01</td><td>PPI 转正连涨 → 会不会传导到 CPI</td><td><a href="信号/PPI再通胀与CPI传导.html">PPI再通胀与CPI传导.md</a></td><td>待验证</td><td>上游已赚钱（原材料利润+44.9%、有色+79.7%），但<strong>未传导到 CPI</strong>（+0.9%）</td><td>6M</td><td>中</td><td>2</td><td>3/3</td><td>2026-11-14</td></tr><tr><td>T-20261014-02</td><td>社融结构 → 政府独撑能否转变</td><td><a href="信号/社融结构与私人部门信贷.html">社融结构与私人部门信贷.md</a></td><td>待验证</td><td>财政与直接融资强、银行信贷弱</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-14</td></tr><tr><td>T-20261015-01</td><td>绿证跨境交易 → 能否走向常态化规模</td><td><a href="信号/绿证跨境交易.html">绿证跨境交易.md</a></td><td>待验证</td><td>向上，受制于国际互认谈判</td><td>12M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-10-29</td></tr><tr><td>T-20261016-01</td><td>普惠养老价格分档 → 合规与信息化采购</td><td><a href="信号/普惠养老价格分档.html">普惠养老价格分档.md</a></td><td>待验证</td><td>向上（先合规、后系统；地方细则未出）</td><td>12M</td><td>中</td><td>2</td><td>4/4</td><td>2026-12-23</td></tr><tr><td>T-20261016-02</td><td>价格法修正 → 制造业价格战格局</td><td><a href="信号/价格法修正与反内卷.html">价格法修正与反内卷.md</a></td><td>待验证</td><td>向上但<strong>时点推迟</strong>（劣质低价已执法，低价倾销仍无依据）</td><td>12M</td><td>中</td><td>3</td><td>3/3</td><td>2026-11-16</td></tr><tr><td>T-20261017-01</td><td>中医药数智化转型 → 会不会带来信息化投入</td><td><a href="信号/中医药数智化转型.html">中医药数智化转型.md</a></td><td>待验证</td><td>向上（先标准、后采购）</td><td>12M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-10-27</td></tr><tr><td>T-20261018-01</td><td>超长期特别国债发行收官 → 实物工作量</td><td><a href="信号/超长期特别国债与实物工作量.html">超长期特别国债与实物工作量.md</a></td><td>待验证</td><td>上修（国债在旧改、电梯更新<strong>与水网</strong>形成实物量，不在基建口径）</td><td>12M</td><td>中</td><td>4</td><td>4/4</td><td>2027-01-25</td></tr><tr><td>T-20261018-02</td><td>供热「温暖工程」三年行动 → 采购放量</td><td><a href="信号/供热温暖工程三年行动.html">供热温暖工程三年行动.md</a></td><td>待验证</td><td>向上，存量改造驱动（春季集中）</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-01</td></tr><tr><td>T-20261019-01</td><td>科技兴商 18 条 → 商业智能体与民生数智化落地</td><td><a href="信号/科技兴商与商业智能体.html">科技兴商与商业智能体.md</a></td><td>待验证</td><td>向上（大企业快、小微慢）</td><td>12M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-10-29</td></tr><tr><td>T-20261019-02</td><td>GDP 三季度回升 → 四季度能否延续</td><td><a href="信号/GDP季度回升.html">GDP季度回升.md</a></td><td>待验证</td><td>温和回升（斜率平缓）</td><td>3M</td><td>中</td><td>2</td><td>3/3</td><td>2026-10-26</td></tr><tr><td>T-20261020-01</td><td>国家数据集团成立 → 数据要素市场能否加速</td><td><a href="信号/国家数据集团与数据要素.html">国家数据集团与数据要素.md</a></td><td>待验证</td><td>向上（基础设施先行、交易滞后）</td><td>12M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-10-30</td></tr><tr><td>T-20261020-02</td><td>文化遗产十五五规划 → 数字化采购放量</td><td><a href="信号/文化遗产数字化.html">文化遗产数字化.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上（普查驱动；已有 1.5 万处硬指标）</td><td>12M</td><td><strong>中高</strong></td><td>2</td><td>3/3</td><td>2026-11-03</td></tr><tr><td>T-20261021-01</td><td>央行利率市场化改革 → 贷款利率会否更灵活</td><td><a href="信号/央行利率市场化改革.html">央行利率市场化改革.md</a></td><td>待验证</td><td>向上（金融→企业→个人，个人最慢）</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-21</td></tr><tr><td>T-20261021-02</td><td>1.5 万处历史建筑修缮 → 修缮采购放量</td><td><a href="信号/历史建筑修缮工程.html">历史建筑修缮工程.md</a></td><td>待验证</td><td>向上但慢（单体小、审批繁、依赖财政）</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-21</td></tr><tr><td>T-20261022-01</td><td>专精特新赋能中心 → 市场化服务采购</td><td><a href="信号/专精特新赋能中心.html">专精特新赋能中心.md</a></td><td>待验证</td><td>向上但慢（筹建一年+各省差异）</td><td>12M</td><td><strong>中偏低</strong></td><td>1</td><td>3/3</td><td>2026-11-05</td></tr><tr><td>T-20261022-02</td><td>新业态用电占比 → 会不会回落</td><td><a href="信号/新业态用电占比.html">新业态用电占比.md</a></td><td>待验证</td><td>高位维持但逐步回落</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-06</td></tr><tr><td>T-20261023-01</td><td>财政紧平衡 → 地方项目会不会放缓</td><td><a href="信号/财政紧平衡与地方支出.html">财政紧平衡与地方支出.md</a></td><td><strong>证据支持（早期）</strong></td><td>分化加剧：中央强、地方弱（固投 -7.2% 印证）</td><td>12M</td><td><strong>中高</strong></td><td>2</td><td>3/3</td><td>2026-11-23</td></tr><tr><td>T-20261023-02</td><td>公共事业价格改革 → 居民端会不会普涨</td><td><a href="信号/公共事业价格改革.html">公共事业价格改革.md</a></td><td><strong>证据支持（早期）</strong></td><td>向上但温和（阶梯与分类；<strong>电力热力利润 −14.3% 是最硬的成本侧证据</strong>）</td><td>12M</td><td><strong>中高</strong></td><td>3</td><td>3/3</td><td>2026-11-23</td></tr><tr><td>T-20261024-01</td><td>南方区域电力市场 → 储能参与市场</td><td><a href="信号/南方区域电力市场.html">南方区域电力市场.md</a></td><td>待验证</td><td>向上（规则先行、规模后至）</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-24</td></tr><tr><td>T-20261025-01</td><td>造船业订单饱和 → 利润何时落地</td><td><a href="信号/造船业订单与利润时滞.html">造船业订单与利润时滞.md</a></td><td>待验证</td><td>向上（订单先行、利润滞后 2~3 年）</td><td>12M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-25</td></tr><tr><td>T-20261025-02</td><td>一刻钟便民生活圈 → 社区商业改造采购</td><td><a href="信号/一刻钟便民生活圈.html">一刻钟便民生活圈.md</a></td><td><strong>证据支持（早期）</strong></td><td>数量向上、单笔比预期大（单社区约 3400 万）</td><td>12M</td><td>中</td><td>2</td><td>4/4</td><td>2026-12-25</td></tr><tr><td>T-20261025-03</td><td>集装箱运力过剩 → 运价 → 跨境电商头程成本</td><td><a href="信号/集装箱运力与跨境电商成本.html">集装箱运力与跨境电商成本.md</a></td><td>待验证</td><td>向下（供给增速&gt;需求增速，碳成本托底）</td><td>24M</td><td>中</td><td>1</td><td>3/3</td><td>2026-11-06</td></tr><tr><td>T-20261026-01</td><td>电梯专项国债 → 更新与加装</td><td><a href="信号/电梯专项国债.html">电梯专项国债.md</a></td><td>待验证</td><td>向上（更新快、加装慢）</td><td>12M</td><td>中高</td><td>1</td><td>3/3</td><td>2026-11-26</td></tr><tr><td>T-20261026-02</td><td>非金融类对外投资收缩 → 跨境服务需求</td><td><a href="信号/非金融类对外投资收缩.html">非金融类对外投资收缩.md</a></td><td>待验证</td><td>向下但收窄；投资出海转出口出海</td><td>12M</td><td>中偏低</td><td>1</td><td>3/3</td><td>2026-10-28</td></tr><tr><td>T-20261027-01</td><td>电力热力利润能否由负转正</td><td><a href="信号/电力热力利润转正.html">电力热力利润转正.md</a></td><td>待验证</td><td>向下（装机过剩+电价下行+成本刚性）</td><td>3M</td><td><strong>中高</strong></td><td>1</td><td>2/2</td><td>2026-11-27</td></tr><tr><td>T-20261027-02</td><td>电子行业利润高增长的持续性</td><td><a href="信号/电子行业利润高增长持续性.html">电子行业利润高增长持续性.md</a></td><td>待验证</td><td>向上但斜率放缓（高基数）</td><td>3M</td><td>中</td><td>1</td><td>2/2</td><td>2027-01-27</td></tr><tr><td>T-20261027-03</td><td>铜：利润高增与现货升水的背离</td><td><a href="信号/铜需求与现货升水背离.html">铜需求与现货升水背离.md</a></td><td>待验证</td><td>震荡（需求强、现货不紧）</td><td>1M</td><td>中</td><td>1</td><td>2/2</td><td>2026-11-27</td></tr></tbody></table></div>
+<p><strong>统计</strong>：36 条信号 ｜ 证据支持 1（「高」）｜ <strong>证据支持（早期）10</strong> ｜ 待验证 25 ｜ 待办行动项 103 项 ｜ <strong>已完成 18 项</strong> ｜ 最近一项到期 <strong>2026-10-27</strong></p>
+<h2 id="h-7">周期分层与模拟账户（<strong>私有</strong>）</h2>
+<blockquote><p><strong>周期分层</strong>：<a href="追踪/信号周期分层.html">tracking/信号周期分层.md</a> —— 30 条信号按 <strong>短（1~4 周，5 条）/ 中（1~3 月，13 条）/ 长（3~12 月，12 条）</strong> 分层。</p><p><strong>打板模拟</strong>：<strong>已拆成独立定时任务</strong>（交易日 15:05），与新闻任务分开。目录 <a href="打板/">打板/</a>，规则与测试周期见 <a href="../打板/文档/规则/规则与测试周期.html">打板/规则与测试周期.md</a>，交易日志见 <a href="../打板/日志/交易日志.html">打板/交易日志.md</a>。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>定时任务</th><th>时间</th><th>职责</th></tr></thead><tbody><tr><td>新闻联播简报 + 趋势跟踪</td><td>每日 <strong>20:30</strong></td><td>抓取 → 解读 → 写判断 → 更新信号 → 推送</td></tr><tr><td>打板模拟账户</td><td>交易日 <strong>15:05</strong></td><td>结算昨日持仓 → 买入今日标的 → 更新日志</td></tr></tbody></table></div>
+<p>两者共享同一工作区与 <code>scripts/</code>，可互相读文件，但<strong>调度与职责完全分开</strong>。</p>
+<h2 id="h-11">私有投资台账（<strong>不上传</strong>）</h2>
+<blockquote><p>与每条信号一一对应的<strong>投资建议详细版</strong>：<a href="追踪/投资建议台账.html">tracking/投资建议台账.md</a></p><p>公开的 <code>signals/*.md</code> 只写业务定位与传导路径；<strong>股票代码、买入价、目标价、方向判断、期货合约点位只在台账里</strong>。</p><p>台账含：28 条信号的方向判断 / 标的与代码 / 传导路径 / 财报验证点 / 买点方法 / 目标逻辑 / 期货合约 / 证伪条件 / 仓位纪律。</p><p>⚠ <strong>代码需自行核对；价位是方法不是报价</strong>（我没有实时行情）。</p></blockquote>
+<h2 id="h-13">主题簇（把"互相印证"的信号放在一起看）</h2>
+<blockquote><p><strong>为什么有这一层</strong>：同一个政策方向常常会出两份以上文件。分开看，每条只有 1~2 条证据、都显得"规模有限"；合起来看，能看到<strong>时序、共同瓶颈、互相印证</strong>——这才是能行动的信息。</p><p>单条信号的判断仍各自维护（见 signals/），簇只做"合起来看"的判断。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>簇</th><th>包含的信号</th><th>共同逻辑</th><th>簇文件</th></tr></thead><tbody><tr><td><strong>A · 健康中国与基层医疗</strong></td><td><a href="信号/康复护理扩容工程.html">康复护理扩容工程</a>、<a href="信号/卫生与健康大会.html">卫生与健康大会</a>、<a href="信号/县域医共体信息化.html">县域医共体信息化</a>、<a href="信号/普惠养老价格分档.html">普惠养老价格分档</a>、<a href="信号/中医药数智化转型.html">中医药数智化转型</a></td><td>同一条链：扩容 → 强基 → 信息化 → 价格规范 → 中医药数智化</td><td>待建</td></tr><tr><td><strong>B · 文化遗产保护与修缮</strong></td><td><a href="信号/文化遗产数字化.html">文化遗产数字化</a>、<a href="信号/历史建筑修缮工程.html">历史建筑修缮工程</a></td><td>✅ 已建簇文件：先普查建档，后修缮施工</td><td><a href="主题簇/文化遗产保护与修缮.html">✅ 已建</a></td></tr><tr><td><strong>C · 宏观价格与货币</strong></td><td><a href="信号/PPI再通胀与CPI传导.html">PPI再通胀与CPI传导</a>、<a href="信号/GDP季度回升.html">GDP季度回升</a>、<a href="信号/央行利率市场化改革.html">央行利率市场化改革</a></td><td>同一个问题：增长与物价的走向，以及钱的价格</td><td>待建</td></tr><tr><td><strong>D · 财政与债务</strong></td><td><a href="信号/5500亿地方债结存限额.html">5500亿地方债结存限额</a>、<a href="信号/超长期特别国债与实物工作量.html">超长期特别国债与实物工作量</a>、<a href="信号/社融结构与私人部门信贷.html">社融结构与私人部门信贷</a></td><td>同一个问题：钱从哪来、有没有变成实物</td><td>待建</td></tr><tr><td><strong>E · 能源与交通电动化</strong></td><td><a href="信号/新能源商用车电动化.html">新能源商用车电动化</a>、<a href="信号/绿证跨境交易.html">绿证跨境交易</a>、<a href="信号/中国航展与低空经济.html">中国航展与低空经济</a></td><td>同一方向：能源与交通的电气化转型</td><td>待建</td></tr><tr><td><strong>F · 政策整顿与反内卷</strong></td><td><a href="信号/新质生产力意见与纠偏.html">新质生产力意见与纠偏</a>、<a href="信号/价格法修正与反内卷.html">价格法修正与反内卷</a></td><td>同一条线：先立规矩、治理低价竞争，从文件升到法律</td><td>待建</td></tr><tr><td><strong>G · 技能与就业</strong></td><td><a href="信号/十五五补贴性职业技能培训.html">十五五补贴性职业技能培训</a>、<a href="信号/教师AI素养全覆盖培训.html">教师AI素养全覆盖培训</a>、<a href="信号/科技兴商与商业智能体.html">科技兴商与商业智能体</a></td><td>同一个问题：谁为技能付费、往哪转</td><td>待建</td></tr><tr><td><strong>H · 数据与AI基础设施</strong></td><td><a href="信号/具身智能与脑机接口落地.html">具身智能与脑机接口落地</a>、<a href="信号/国家数据集团与数据要素.html">国家数据集团与数据要素</a>、<a href="信号/新业态用电占比.html">新业态用电占比</a></td><td>同一个底座：数据供给与AI落地（用电量是实物证据）</td><td>待建</td></tr><tr><td><strong>I · 基建实物量</strong></td><td><a href="信号/物流景气与六张网实物量.html">物流景气与六张网实物量</a>、<a href="信号/供热温暖工程三年行动.html">供热温暖工程三年行动</a></td><td>同一个问题：基建是不是真开工了</td><td>待建</td></tr><tr><td><strong>J · 消费</strong></td><td><a href="信号/国庆消费结构.html">国庆消费结构</a></td><td>待观察是否与 G 或 C 合并</td><td>待建</td></tr></tbody></table></div>
+<h2 id="h-16">结构约定</h2>
+<div class="table-wrap"><table><thead><tr><th>内容</th><th>放在哪</th><th>为什么</th></tr></thead><tbody><tr><td>判断、证据时间线、复盘</td><td>信号文件（id 在文件首行表格里）</td><td>一条信号一个位置，只追加</td></tr><tr><td><strong>个人影响与行动项</strong>（含计划日期、耗时、状态）</td><td><strong>信号文件的「七、对我的个人影响与行动项」</strong></td><td>个人影响本来就属于具体信号；放这里才能带日期追踪执行</td></tr><tr><td>每日条目单、三件事、行业影响、今日答案、视频候选</td><td><code>daily\YYYY-MM-DD.md</code></td><td>按天归档，不再包含"个人影响"</td></tr></tbody></table></div>
+<blockquote><p><strong>注意</strong>：日报自 2026-10-11 起不再包含「对我的个人影响」一节 —— 该内容按日期写入对应信号文件。历史日报（10-08/09/10）的该节已迁移并删除。</p></blockquote>
+<h2 id="h-19">每次运行的读取策略（省 token 的关键）</h2>
+<ol><li><strong>必读</strong>：本文件（约 700 tokens）+ <code>daily\YYYY-MM-DD.md</code> 当天骨架</li><li><strong>按需读</strong>：只读「最近更新有变化」或「今天新闻直接相关」的信号文件（通常 1~3 个，每个约 1,000~1,500 tokens）</li><li><strong>还要看</strong>：总表里「最近到期」已过今天的行 → 打开对应文件，执行或顺延行动项，并更新状态</li><li><strong>不读</strong>：<code>tracking\趋势追踪.md</code> 的完整历史（需要回溯时才查）</li><li>更新完信号文件后，<strong>回填本表的「证据」「行动项」「最近到期」「状态」「置信度」「最后更新」</strong></li></ol>
+<h2 id="h-21">与旧文件的关系</h2>
+<ul><li><code>tracking\趋势追踪.md</code> 保留为<strong>按天的日志与总览</strong>（答案登记表 + 完整答案存档 + 逐日日志 + 校准复盘）</li><li><code>signals/</code> 是<strong>按事件组织的完整档案</strong>，未来所有证据与个人影响都往这里加</li><li>两者不冲突：日志按天看，信号文件按事件看</li></ul>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>
