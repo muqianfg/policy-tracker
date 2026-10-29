@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>消费贷收缩与以旧换新</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：消费贷收缩与以旧换新.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/29 20:34:40 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">T-20261029-03 · 消费贷收缩 vs 以旧换新 2 万亿</h1>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>值</th></tr></thead><tbody><tr><td>状态</td><td>待验证</td></tr><tr><td>趋势判断</td><td>短期向上、中期衰减（一次性政策，透支未来需求）</td></tr><tr><td>时间窗</td><td>6M</td></tr><tr><td>置信度</td><td>中高</td></tr><tr><td>立档日</td><td>2026-10-29</td></tr><tr><td>最后更新</td><td>2026-10-29</td></tr><tr><td>证据条数</td><td>1</td></tr><tr><td>所属簇</td><td><strong>J · 消费与商贸流通</strong></td></tr><tr><td>关联信号</td><td><strong>T-20261028-02</strong>（消费贷贴息能否拉起消费，本条是其最强反向证据）、T-20261010-02（国庆消费结构）</td></tr></tbody></table></div>
+<blockquote><p><strong>术语</strong>：本档案中专业词<strong>第一次出现时已用人话解释</strong> —— 见下方「术语小词典」。完整词表见 <a href="../模板/术语对照表.html">术语对照表</a>。</p></blockquote>
+<h2 id="h-3">术语小词典</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>人话解释</th></tr></thead><tbody><tr><td><strong>消费性贷款</strong></td><td>老百姓借钱买东西（不含房贷）</td></tr><tr><td><strong>住户贷款</strong></td><td>所有家庭借的钱，包括房贷、消费贷、经营贷</td></tr><tr><td><strong>以旧换新</strong></td><td>把旧家电/旧车交掉买新的，政府给补贴</td></tr><tr><td><strong>存款搬家</strong></td><td>把银行里的存款取出来花</td></tr></tbody></table></div>
+<h2 id="h-5">一、问题（可被证伪）</h2>
+<p>央行数据显示消费性贷款 −2.8%，但商务部说以旧换新带动销售额超 2 万亿 —— 这两个数矛盾吗？</p>
+<h2 id="h-7">二、我的答案</h2>
+<p><strong>不矛盾，而且这个组合揭示了一个真相：以旧换新的钱，不是借来的，是存款搬出来的。</strong></p>
+<p>居民在减少借贷（消费贷 −2.8%、住户贷款 −2.0%），但把积蓄拿出来买大件。<strong>这意味着以旧换新的效果是一次性的</strong>，明年没有存量可换时会快速衰减。</p>
+<h2 id="h-10">三、验证方式</h2>
+<ul><li><strong>主指标</strong>：居民存款增速（若存款在降而消费在涨 → 说明在动用积蓄）</li><li><strong>辅助指标</strong>：2027 年一季度以旧换新销售额（无基数年份的真实需求）</li><li><strong>判据</strong>：</li><ul><li>消费贷余额转正 + 社零跳升 → 我低估了贴息效果</li><li>存款增速下降 + 消费涨 → 判断成立（存款搬家）</li><li>2027 年以旧换新销售额同比负增长 → 判断成立（一次性）</li></ul></ul>
+<h2 id="h-12">四、证据时间线（只追加，不改写）</h2>
+<h3 id="h-13">2026-10-29 · 立档</h3>
+<ul><li><strong>来源</strong>：① 央行三季度贷款投向报告（2026-10-28）；② 商务部数据（今天《新闻联播》播报「今年以来以旧换新带动相关品类销售额超 2 万亿元」）。</li><li><strong>事实</strong>：</li><ul><li>央行李三季度：<strong>住户贷款余额 82.25 万亿，同比 −2.0%</strong>；<strong>不含房贷的消费性贷款 −2.8%</strong></li><li>商务部：以旧换新带动销售额 <strong>超 2 万亿元</strong>，惠及 <strong>超 2.5 亿人次</strong></li><li>央行专家（娄飞鹏）：预期「随着个人消费贷款贴息、居民购房贷款贴息形成合力，四季度住户贷款有望小幅修复」—— <strong>官方也承认住户贷款偏弱</strong></li></ul><li><strong>我的解读</strong>：<strong>两个官方数据放在一起，恰好说明钱从哪来。</strong> 如果居民是借钱消费，消费贷应该涨；现在是贷款在降、销售在涨 → 说明<strong>花的是存款</strong>。这解释了两件事：① 为什么消费贷贴息效果有限（居民不想借钱）；② 为什么以旧换新有效（补贴直接降低购买成本，不用借钱）。<strong>但存款总有花完的时候，政策退坡后需求会断崖。</strong></li><li><strong>对判断的影响</strong>：<strong>立档</strong>（同时<strong>减弱</strong> T-20261028-02）</li></ul>
+<h2 id="h-15">五、复盘</h2>
+<ul><li>（待 2027-04-29 到期填写）</li></ul>
+<h2 id="h-17">六、修正记录</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>修正内容</th><th>原因</th></tr></thead><tbody><tr><td>2026-10-29</td><td>立档</td><td>—</td></tr></tbody></table></div>
+<h2 id="h-19">七、影响判断（三分法）</h2>
+<h3 id="h-20">2026-10-29 · 影响判断</h3>
+<h4 id="h-21">一、创业风口：钱从哪个环节过</h4>
+<div class="table-wrap"><table><thead><tr><th>要素</th><th>内容</th></tr></thead><tbody><tr><td><strong>谁在花钱</strong></td><td>财政（以旧换新补贴）、居民存款</td></tr><tr><td><strong>买什么</strong></td><td>家电、汽车、家装、数码产品</td></tr><tr><td><strong>谁能接</strong></td><td>需<strong>品牌方或授权经销商资质</strong>（个人拿不到）；<strong>回收拆解</strong>需<strong>废弃电器电子产品处理资质</strong></td></tr><tr><td><strong>单笔规模</strong></td><td>家电客单价 <strong>2,000~8,000 元</strong>，补贴 <strong>10%~20%</strong>；汽车 <strong>10~20 万</strong>，补贴 <strong>1~2 万</strong></td></tr><tr><td><strong>什么时候</strong></td><td><strong>Q4 是补贴额度冲刺期</strong>；2027 年是政策退坡后的真实需求检验期</td></tr></tbody></table></div>
+<p><strong>✅ 可接点</strong>：<strong>旧家电回收与上门拆装服务</strong> —— 门槛相对低，但需备案；补贴退坡后这个需求反而会上升（存量旧机还在）。</p>
+<h4 id="h-24">二、投资影响：谁被实质影响（<strong>非推荐</strong>）</h4>
+<blockquote><p>⚠ 仅为业务定位与传导路径分析，<strong>不构成买入/卖出建议，不预测股价</strong>。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>环节</th><th>受影响主体</th><th>为什么受影响</th><th>财报里要验证什么</th></tr></thead><tbody><tr><td>上游</td><td>家电/汽车制造</td><td>短期内销量冲高</td><td>出货量、渠道库存</td></tr><tr><td>中游</td><td>经销商、电商平台</td><td>短期流量与成交</td><td>同店增长、客单价</td></tr><tr><td>下游</td><td>回收拆解</td><td>旧机回收量上升</td><td>处理量、再生材料价格</td></tr><tr><td><strong>被挤压方</strong></td><td>消费金融公司、汽车金融</td><td>居民不借钱，业务收缩</td><td>消费贷余额、不良率</td></tr></tbody></table></div>
+<ul><li><strong>相关大宗/期货</strong>：<strong>铜（CU）、铝（AL）</strong>（家电与汽车用铜铝）、<strong>螺纹钢（RB）</strong>（汽车/家电外壳）</li><li><strong>概念板块</strong>：家电、汽车、消费、以旧换新、再生资源</li></ul>
+<h4 id="h-28">三、个人生活：身边会变什么</h4>
+<ul><li><strong>能看到/用到的</strong>：商场里以旧换新的广告更多；<strong>旧家电有人上门收，还能抵钱</strong></li><li><strong>价格与办事</strong>：大件补贴力度大，<strong>但补贴额度先到先得</strong>；明年补贴退坡后价格会回升</li><li><strong>工作与收入</strong>：<strong>家电安装、旧机回收、汽车销售</strong>岗位需求上升；但<strong>这是短期脉冲</strong>，2027 年可能回落</li></ul>
+<hr>
+<h4 id="h-31">四、跨链传导</h4>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>传导链</th><th>受影响的行业与主体</th><th>关键参数</th></tr></thead><tbody><tr><td><strong>成本阀门</strong></td><td>补贴降低购买成本 → 提前释放需求 → 明年基数抬高</td><td>家电、汽车、消费金融</td><td>社零增速、家电出货量</td></tr><tr><td><strong>门槛变化</strong></td><td>以旧换新需旧机 → 回收渠道价值上升</td><td>回收拆解企业</td><td>旧机回收量、处理资质数量</td></tr></tbody></table></div>
+<p><strong>关联信号</strong>：<strong>减弱</strong> T-20261028-02（消费贷贴息）—— 这是最强反向证据：贴息没拉动借贷。</p>
+<hr>
+<h3 id="h-35">行动清单</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>待办</th><th>记录日</th><th>计划日期</th><th>预计耗时</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td>查居民存款增速最新值（央行金融统计报告）</td><td>2026-10-29</td><td>2026-11-03（5 天后）</td><td>25 分钟</td><td>待办</td></tr><tr><td>2</td><td>跟踪 11 月社零与消费贷余额，看是否分化</td><td>2026-10-29</td><td>2026-12-15（约 7 周后）</td><td>30 分钟</td><td>待办</td></tr></tbody></table></div>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>

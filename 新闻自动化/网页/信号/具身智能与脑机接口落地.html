@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>具身智能与脑机接口落地</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：具身智能与脑机接口落地.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/28 23:23:33 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">T-20261008-02 · 具身智能/脑机接口在康复护理的落地形态</h1>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>值</th></tr></thead><tbody><tr><td>状态</td><td>证据支持（早期）</td></tr><tr><td>趋势判断</td><td>向上，但格局会快速分化</td></tr><tr><td>时间窗</td><td>12M</td></tr><tr><td>置信度</td><td><strong>中高</strong>（2026-10-15 由「中」上调）</td></tr><tr><td>立档日</td><td>2026-10-08</td></tr><tr><td>最后更新</td><td>2026-10-28</td></tr><tr><td>证据条数</td><td>5</td></tr><tr><td>所属簇</td><td><strong>H · 数据与AI基础设施</strong></td></tr><tr><td>周期</td><td><strong>长</strong>（6~12 月）— 等注册证获批与进院中标</td></tr><tr><td>关联信号</td><td>T-20261019-01（科技兴商与商业智能体）</td></tr></tbody></table></div>
+<blockquote><p><strong>术语</strong>：本档案中专业词<strong>第一次出现时已用人话解释</strong> —— 见下方「术语小词典」。完整词表见 <a href="../模板/术语对照表.html">术语对照表</a>。</p></blockquote>
+<h2 id="h-3">术语小词典（本档案用到的人话解释）</h2>
+<blockquote><p>按「整个档案只解释一次」的规则，这里一次讲清，后文直接用简称。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>人话解释</th></tr></thead><tbody><tr><td><strong>具身智能</strong></td><td>有身体的人工智能，也就是机器人</td></tr><tr><td><strong>脑机接口</strong></td><td>把大脑信号直接连到机器上，用来控制机械手等设备</td></tr><tr><td><strong>创新医疗器械特别审查</strong></td><td>药监局专门给创新产品开的一条审批加速通道</td></tr></tbody></table></div>
+<h2 id="h-6">一、问题（可被证伪）</h2>
+<p>"具身智能 / 脑机接口"在康复护理领域的落地，会先进医院采购目录，还是继续停留在概念展示阶段？</p>
+<h2 id="h-8">二、我的答案</h2>
+<p>先进医院采购目录，但形态是<strong>"康复训练设备"</strong>，不是"通用人形机器人"。未来 12 个月会出现明确的康复机器人/外骨骼进院中标记录；<strong>判断分水岭是有没有拿到医疗器械注册证</strong>。</p>
+<h2 id="h-10">三、验证方式</h2>
+<ul><li>医疗器械<strong>优先审评审批名单</strong>中的康复类/脑机接口类产品</li><li>医院采购中标公告里"康复机器人/外骨骼"的出现频次</li><li>头部康复机器人企业的<strong>注册证进展</strong></li><li><strong>判据</strong>：出现注册证获批或进院中标记录 = 支持；12 个月内仍是纯概念报道 = 推翻</li></ul>
+<h2 id="h-12">四、证据时间线（只追加，不改写）</h2>
+<h3 id="h-13">2026-10-08 · 立档</h3>
+<ul><li><strong>来源</strong>：《新闻联播》第 7、8 条</li><li><strong>事实</strong>：《医疗康复护理扩容提升工程实施方案》点名脑机接口、具身智能、仿生驱动，"人工智能+康复护理""康复机器人、智能可穿戴设备"写入文件，创新器械可走优先审评审批；同日播出具身智能产业化加速落地</li><li><strong>我的解读</strong>：具身智能过去最大问题是<strong>没有明确买单方</strong>；这份文件给出了答案：医保 + 公立医院采购</li><li><strong>对判断的影响</strong>：立档</li></ul>
+<h3 id="h-15">2026-10-09 · 政策确认，非订单证据（不升级置信度）</h3>
+<ul><li><strong>来源</strong>：《中共中央 国务院关于发展新质生产力的意见》</li><li><strong>事实</strong>：脑机接口、具身智能被列为前瞻布局的未来产业；企业研发项目可按程序上升为国家项目</li><li><strong>我的解读</strong>：这是<strong>政策确认</strong>。按既定标准，新证据必须是资金、订单、招标、价格、产能或企业动作 —— 被更高层文件"点名"不算</li><li><strong>对判断的影响</strong>：维持（置信度不升级）</li></ul>
+<h3 id="h-17">2026-10-10 · 同一政策文件的重述（不升级）</h3>
+<ul><li><strong>来源</strong>：第一财经 10/8 快讯（两部门方案原文核对）</li><li><strong>事实</strong>："加快脑机接口、具身智能、仿生驱动等前沿技术布局""符合条件的康复护理创新医疗器械按程序纳入优先审评审批"</li><li><strong>我的解读</strong>：这是<strong>同一份文件的重述</strong>，不是新证据。仍未看到注册证获批或进院中标记录</li><li><strong>对判断的影响</strong>：维持</li></ul>
+<h3 id="h-19">2026-10-15 · ✅ 强支持证据：三家企业脑机接口产品进入药监局绿色审批通道</h3>
+<ul><li><strong>来源</strong>：国家药品监督管理局医疗器械技术审评中心《创新医疗器械特别审查申请审查结果公示》+ 动脉网报道（2026-08-25）</li><li><strong>事实</strong>：<strong>品驰医疗、神络医疗、海扶科技</strong>三家企业的<strong>核心脑机接口创新产品</strong>入选<strong>创新医疗器械特别审查程序（绿色审批通道）</strong>，覆盖三大核心技术赛道；报道称"实现国产医用脑机接口全技术路线多点突破"</li><li><strong>配套信号</strong>：<strong>iCCD2026 第二届脑机生态大会将于 2026 年 10 月 28-29 日在深圳举办</strong></li><li><strong>我的解读</strong>：本信号的分水岭是"<strong>有没有拿到医疗器械注册证</strong>"。现在看到的是<strong>注册流程的第一道加速关卡已通过</strong> —— 距"拿到注册证"与"进院中标"更近一步。这是<strong>监管流程上的实质进展</strong>，不是政策表态</li><li><strong>对判断的影响</strong>：<strong>增强</strong> —— 置信度 <strong>中 → 中高</strong>，状态改为「证据支持（早期）」。但尚未到"获批注册证"或"医院采购中标"，故<strong>不上调为"高"</strong></li><li><strong>下一步</strong>：跟踪这三家企业的注册证获批进展，以及是否出现在医院采购中标记录中</li></ul>
+<h3 id="h-21">2026-10-28 · 政策确认（<strong>不是订单证据，不上调置信度</strong>）</h3>
+<ul><li><strong>来源</strong>：《产业基础能力提升"十五五"规划》（工信部等 8 部门，2026-10-22；中国政府网 10-27 全文）。</li><li><strong>事实</strong>：规划在前沿布局清单中明确列出<strong>脑机接口、具身智能、6G</strong>，提出「场景牵引、基础先行」，前瞻布局一批关键基础产品创新任务。</li><li><strong>我的解读</strong>：这是<strong>第一次有国家级产业规划把「具身智能」和「脑机接口」并列为前沿布局方向</strong>，说明方向已被最高层确认。<strong>但按我们自己的规则（2026-10-26 定）：「被更高层文件点名确认方向」不算新证据，不得据此上调置信度。</strong></li><li><strong>对判断的影响</strong>：<strong>维持</strong>（政策确认，非订单证据。置信度仍为中高）</li></ul>
+<h2 id="h-23">五、复盘</h2>
+<ul><li>到期日 2027-10-08：待填</li></ul>
+<h2 id="h-25">六、修正记录</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>修正内容</th><th>原因</th></tr></thead><tbody><tr><td>—</td><td>—</td><td>—</td></tr></tbody></table></div>
+<h2 id="h-27">七、对我的个人影响与行动项</h2>
+<blockquote><p><strong>规则</strong>：本节只追加、不覆盖。每次更新前先写日期小标题（<code>### YYYY-MM-DD</code>），历史内容永不删改。</p></blockquote>
+<h3 id="h-29">2026-10-08 · 立档时的影响判断</h3>
+<blockquote><p>来源：2026-10-08 日报「三、对我的个人影响」下沉至此。以后这条信号的新影响按日期追加到本节末尾。</p></blockquote>
+<ul><li><strong>时间/精力</strong>：这条信号的关键是"等证"而不是"找消息"。我需要的不是每天刷新闻，而是<strong>定期查两个官方名单</strong>（优先审评审批、进院中标）。</li><li><strong>钱</strong>：如果确实按"有证 + 有入院渠道"分化，那么<strong>一级市场/二级市场的筛选线就是注册证</strong>，而不是技术故事；这条信号验证前不宜下仓位判断。</li><li><strong>技能</strong>：这条同时提示一个技能方向 —— "<strong>医疗器械注册与入院合规</strong>"是低竞争、高门槛的服务型切口，与我的分析能力可结合。</li><li><strong>所在地/资源</strong>：脑机接口与康复机器人企业的分布集中在北京、上海、深圳、杭州；若我在这些城市，线下接触与调研的可能性更高。</li></ul>
+<h3 id="h-32">2026-10-22 · 影响判断（三分法）</h3>
+<h4 id="h-33">一、创业风口：钱从哪个环节过</h4>
+<div class="table-wrap"><table><thead><tr><th>要素</th><th>内容</th></tr></thead><tbody><tr><td><strong>谁在花钱</strong></td><td>医院（康复科、神经外科）、工厂</td></tr><tr><td><strong>买什么</strong></td><td>康复机器人、脑机接口设备、手术机器人</td></tr><tr><td><strong>谁能接</strong></td><td><strong>医疗器械注册证是硬门槛</strong>（没证不能卖、不能进医院）</td></tr><tr><td><strong>单笔规模</strong></td><td>康复机器人 30~100 万/台；手术机器人千万级</td></tr><tr><td><strong>什么时候</strong></td><td>拿到注册证之后；进院还要过招标与科室认可</td></tr></tbody></table></div>
+<h4 id="h-35">二、投资影响：谁被实质影响（<strong>非推荐</strong>）</h4>
+<blockquote><p>⚠ 本节只列"业务会被实质影响的主体与传导路径"，不构成买入/卖出建议，不预测股价。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>环节</th><th>受影响主体（按业务归类）</th><th>为什么受影响</th><th>财报里要验证什么</th></tr></thead><tbody><tr><td>中游·机器人</td><td>埃斯顿、汇川技术、绿的谐波（谐波减速器）、埃夫特</td><td>具身智能需要本体与核心零部件</td><td>机器人业务收入、订单</td></tr><tr><td>中游·脑机</td><td>三博脑科（神经专科）、创新医疗</td><td>脑机接口临床落地需要神经专科场景</td><td>临床项目数</td></tr><tr><td>被挤压方</td><td>纯进口代理（无自主产品）</td><td>国产替代与审批加速</td><td>——</td></tr></tbody></table></div>
+<ul><li><strong>相关大宗/期货</strong>：无直接联动。<strong>稀土永磁</strong>（机器人电机用）间接相关。</li><li><strong>概念板块</strong>：机器人 / 脑机接口</li></ul>
+<h4 id="h-39">三、个人生活：身边会变什么</h4>
+<ul><li>康复科出现机器人辅助训练，治疗师从"扶着练"变成"设定参数"</li><li>瘫痪病人能用机械手抓杯子 —— 这类新闻会越来越多</li><li>工厂里机器人同事变多，重复性岗位减少</li><li>做机器人调试、维护的岗位会出现缺口</li></ul>
+<hr>
+<h4 id="h-42">四、跨链传导：还改变了哪个行业的关键参数</h4>
+<blockquote><p><strong>规则（2026-10-25 新增）</strong>：三分法只覆盖产业链内部。这一节回答「这个变化还改变了哪个不在本产业链里的行业的关键成本、关键能力或关键门槛」。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>传导链（本行业 → 中间变量 → 受影响行业）</th><th>受影响的行业与主体</th><th>关键参数（可查的数）</th></tr></thead><tbody><tr><td>能力瓶颈</td><td>机器人 → 制造业人工成本下降 → 用工需求变化</td><td>劳动密集制造、物流分拣</td><td>工业机器人密度、单台成本</td></tr><tr><td>门槛变化</td><td>注册证 → 谁能进院 → 医疗机器人格局</td><td>医疗机器人厂商</td><td>三类证获批数量</td></tr></tbody></table></div>
+<p><strong>关联信号</strong>：T-20261019-01（科技兴商与商业智能体）</p>
+<hr>
+<h3 id="h-47">行动清单</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>待办</th><th>记录日</th><th>计划日期</th><th>预计耗时</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td>查国家药监局"创新医疗器械特别审查/优先审批"名单中康复类、脑机接口类产品的数量与进度</td><td>2026-10-08</td><td>2026-10-16（5 天后）</td><td>45 分钟</td><td>待办</td></tr><tr><td>2</td><td>检索康复机器人/外骨骼的医院采购中标记录，确认"是否已有进院案例"</td><td>2026-10-08</td><td>2026-10-20（9 天后）</td><td>45 分钟</td><td>待办</td></tr><tr><td>3</td><td>翻阅《医疗康复护理扩容提升工程实施方案》全文，记录医保支付标准对这类设备的表述</td><td>2026-10-08</td><td>2026-10-25（2 周后）</td><td>40 分钟</td><td>待办</td></tr></tbody></table></div>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>
