@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>可再生装机与发电量缺口</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：可再生装机与发电量缺口.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/10/31 20:32:49 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">T-20261031-02 · 可再生装机与发电量缺口</h1>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>值</th></tr></thead><tbody><tr><td>状态</td><td>待验证</td></tr><tr><td>趋势判断</td><td>缺口维持（物理规律决定，非政策问题）</td></tr><tr><td>时间窗</td><td>2 年（2028-12-31）</td></tr><tr><td>置信度</td><td><strong>中高</strong></td></tr><tr><td>立档日</td><td>2026-10-31</td></tr><tr><td>最后更新</td><td>2026-10-31</td></tr><tr><td>证据条数</td><td>1</td></tr><tr><td>所属簇</td><td><strong>E · 能源与交通电动化</strong></td></tr><tr><td>关联信号</td><td>T-20261031-01（算力网，电力新需求）、T-20261022-02（新业态用电占比）、T-20261024-01（南方区域电力市场）</td></tr></tbody></table></div>
+<blockquote><p><strong>术语</strong>：本档案中专业词<strong>第一次出现时已用人话解释</strong> —— 见下方「术语小词典」。完整词表见 <a href="../模板/术语对照表.html">术语对照表</a>。</p></blockquote>
+<h2 id="h-3">术语小词典</h2>
+<div class="table-wrap"><table><thead><tr><th>专业词</th><th>人话解释</th></tr></thead><tbody><tr><td><strong>装机容量</strong></td><td>发电设备的名义能力。一台 100 万千瓦的机组，指它满负荷时的能力</td></tr><tr><td><strong>发电量</strong></td><td>实际发了多少电。光伏只有白天发、风电看风，「装机大」不等于「发电多」</td></tr><tr><td><strong>利用小时数</strong></td><td>一年实际发电量 ÷ 装机容量。光伏约 1,200~1,500 小时，煤电约 4,500 小时，差 3 倍</td></tr><tr><td><strong>液态空气储能</strong></td><td>用富余的电把空气冷却成液体存起来，需要电时让它气化推动发电机。本质是「把电存成冷能」</td></tr><tr><td><strong>往返效率</strong></td><td>存进去 100 度电，能取出来多少度。液态空气约 50~60%，抽水蓄能约 75%，锂电池 85%+</td></tr><tr><td><strong>转动惯量</strong></td><td>电网的「惯性」，靠大型旋转机械提供。新能源多、传统机组少 → 电网容易不稳</td></tr></tbody></table></div>
+<h2 id="h-5">一、问题（可被证伪）</h2>
+<p>可再生能源「装机占比 60.94% vs 发电量占比 41.8%」的缺口，未来 2 年能否明显缩小？</p>
+<h2 id="h-7">二、我的答案</h2>
+<p><strong>不能明显缩小，会维持在 18~20 个百分点。</strong></p>
+<p>理由：这个缺口不是「问题」，是风光发电的物理特性决定的。只要新增装机继续以风光为主（目前占新增 67.6%），缺口就会维持甚至扩大。<strong>储能能缓解波动，但不能提高风光的年发电量</strong>（存的是同一度电，还有损耗）。</p>
+<h2 id="h-10">三、验证方式</h2>
+<ul><li><strong>主指标</strong>：国家能源局季度发布会数据，算「装机占比 − 发电量占比」的差值</li><li><strong>判据</strong>：</li><ul><li>2028 年底缺口缩到 15pt 以内 → 我低估了利用小时数改善</li><li>缺口扩到 22pt 以上 → 新增装机仍在加速铺风光</li><li>维持 18~20pt → 判断成立</li></ul></ul>
+<h2 id="h-12">四、证据时间线（只追加，不改写）</h2>
+<h3 id="h-13">2026-10-31 · 立档</h3>
+<ul><li><strong>来源</strong>：国家能源局 2026-10-30 新闻发布会，《人民日报海外版》2026-10-31 第 4 版；今天《新闻联播》联播快讯播报。</li><li><strong>事实</strong>：</li><ul><li>前三季度可再生能源发电量 <strong>3.13 万亿千瓦时，+8%</strong>，占全部发电量 <strong>41.8%</strong></li><li>截至 9 月底可再生能源装机 <strong>25.18 亿千瓦，+14.6%</strong>，占总装机 <strong>60.94%</strong></li><li>风光装机 <strong>20.1 亿千瓦（占 48.66%）</strong>；风光发电量 <strong>1.92 万亿千瓦时（+11%，占全社会用电量 23.8%）</strong></li><li>新增装机：可再生能源 <strong>1.8 亿千瓦占 71.7%</strong>；风光 <strong>1.7 亿千瓦占 67.6%</strong></li><li><strong>可再生能源发电增量超 2,500 亿千瓦时，占全国发电增量的 87.5%</strong></li><li>里程碑：<strong>光伏发电装机历史性超过煤电，成为装机规模最大的电源品种</strong></li></ul><li><strong>我的解读</strong>：<strong>装机 60.94% 却只发 41.8% 的电，风光 48.66% 只发 23.8% —— 这就是储能的全部理由。</strong> 但必须说清：这不是「效率低」，是风光的天性。<strong>储能解决的是「什么时候发」，不是「发多少」。</strong></li><li><strong>对判断的影响</strong>：<strong>立档</strong></li></ul>
+<h2 id="h-15">五、复盘</h2>
+<ul><li>（待 2028-12-31 到期填写）</li></ul>
+<h2 id="h-17">六、修正记录</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>修正内容</th><th>原因</th></tr></thead><tbody><tr><td>2026-10-31</td><td>立档</td><td>—</td></tr></tbody></table></div>
+<h2 id="h-19">七、影响判断（三分法）</h2>
+<h3 id="h-20">2026-10-31 · 影响判断</h3>
+<h4 id="h-21">一、创业风口：钱从哪个环节过</h4>
+<div class="table-wrap"><table><thead><tr><th>要素</th><th>内容</th></tr></thead><tbody><tr><td><strong>谁在花钱</strong></td><td>五大发电集团、地方能源集团、中国绿发等央企、电网公司</td></tr><tr><td><strong>买什么</strong></td><td>储能电站运维服务、深冷设备检维修、<strong>储能项目前期咨询与并网手续代办</strong></td></tr><tr><td><strong>谁能接</strong></td><td>设备制造需重资产；<strong>运维与咨询门槛低</strong>（懂电力系统 + 会写材料）；深冷检维修需<strong>特种设备资质</strong></td></tr><tr><td><strong>单笔规模</strong></td><td>储能电站运维 <strong>年费百万级</strong>；并网咨询单项目 <strong>几十万</strong></td></tr><tr><td><strong>什么时候</strong></td><td><strong>2026 Q4 ~ 2027 年，配储要求推动项目集中开工</strong></td></tr></tbody></table></div>
+<p><strong>✅ 最现实的可接点</strong>：<strong>储能电站并网手续代办与前期咨询</strong> —— 每个项目都要做，流程复杂（涉及电网、能源局、消防），熟悉流程的人很少，单价高。</p>
+<h4 id="h-24">二、投资影响：谁被实质影响（<strong>非推荐</strong>）</h4>
+<blockquote><p>⚠ 仅为业务定位与传导路径分析，<strong>不构成买入/卖出建议，不预测股价</strong>。</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>环节</th><th>受影响主体</th><th>为什么受影响</th><th>财报里要验证什么</th></tr></thead><tbody><tr><td>上游</td><td>储能集成商、压缩机、膨胀机、换热器</td><td>储能订单增长</td><td>订单增速、毛利率</td></tr><tr><td>中游</td><td>发电集团、独立储能运营商</td><td>容量电价与调峰收入</td><td>利用小时数、容量电价收入</td></tr><tr><td>下游</td><td>电网、数据中心、工业企业</td><td>峰谷价差、用电成本</td><td>峰谷价差、用电成本</td></tr><tr><td><strong>被挤压方</strong></td><td>煤电</td><td>基荷地位下降（但调峰价值上升）</td><td>煤电利用小时数</td></tr></tbody></table></div>
+<ul><li><strong>相关大宗/期货</strong>：<strong>铜（CU）、铝（AL）</strong>（电缆、换热器）；<strong>没有锂</strong>（液态空气储能不用锂，这是优势）</li><li><strong>概念板块</strong>：储能、新型电力系统、压缩空气储能、液冷</li></ul>
+<h4 id="h-28">三、个人生活：身边会变什么</h4>
+<ul><li><strong>能看到/用到的</strong>：青海、甘肃等地出现大型储能电站；<strong>停电会变少</strong></li><li><strong>价格与办事</strong>：<strong>峰谷电价差会拉大</strong>（鼓励低谷用电）；家里装光伏 + 储能回本周期缩短</li><li><strong>工作与收入</strong>：储能运维、电力交易员、并网咨询岗位增加</li></ul>
+<hr>
+<h4 id="h-31">四、跨链传导</h4>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>传导链</th><th>受影响的行业与主体</th><th>关键参数</th></tr></thead><tbody><tr><td><strong>成本阀门</strong></td><td>风光装机上升 → 波动加大 → 储能与调峰需求 → 容量电价</td><td>储能、煤电调峰、电网</td><td>储能利用小时数、容量电价</td></tr><tr><td><strong>能力瓶颈</strong></td><td>储能扩张 → 长时储能技术尚不成熟 → 液态空气/压缩空气/液流电池竞争</td><td>储能技术路线</td><td>往返效率、单位造价</td></tr></tbody></table></div>
+<p><strong>关联信号</strong>：<strong>加强</strong> T-20261031-01（算力网增加电力需求）；与 T-20261024-01（南方区域电力市场）同属新型电力系统。</p>
+<hr>
+<h3 id="h-35">行动清单</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>待办</th><th>记录日</th><th>计划日期</th><th>预计耗时</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td>查历史季度「装机占比−发电量占比」差值序列，看趋势</td><td>2026-10-31</td><td>2026-11-08（8 天后）</td><td>45 分钟</td><td>待办</td></tr><tr><td>2</td><td>跟踪 Q4 能源局发布会数据（2027-01-30 前后）</td><td>2026-10-31</td><td>2027-01-30（3 个月后）</td><td>30 分钟</td><td>待办</td></tr></tbody></table></div>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>
