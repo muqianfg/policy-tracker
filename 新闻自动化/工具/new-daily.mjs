@@ -1,4 +1,4 @@
-﻿// 生成当天日报骨架：daily/YYYY-MM-DD.md
+// 生成当天日报骨架：daily/YYYY-MM-DD.md
 // 用法: node new-daily.mjs [YYYY-MM-DD] [--force]
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,9 +25,9 @@ function updateReadmeIndex(day, firstHook) {
   if (i < 0) return;
   const j = rd.indexOf(marker, i);
   if (j < 0) return;
-  const line = '| [' + day + '](daily/' + day + '.md) | ' + firstHook + ' |';
+  const line = '| [' + day + '](日报/' + day + '.md) | ' + firstHook + ' |';
   const insertAt = j + marker.length;
-  if (rd.slice(insertAt, insertAt + 200).includes('daily/' + day + '.md')) return;
+  if (rd.slice(insertAt, insertAt + 200).includes('日报/' + day + '.md')) return;
   rd = rd.slice(0, insertAt) + '\n' + line + rd.slice(insertAt);
   fs.writeFileSync(readmePath, '\uFEFF' + rd.replace(/^\uFEFF/, ''), 'utf8');
   console.log('已更新 README 索引: ' + day);
