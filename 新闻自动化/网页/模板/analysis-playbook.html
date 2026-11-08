@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>analysis-playbook</title>
+<style>
+:root{
+  --bg:#faf8f4; --card:#fff; --text:#23262b; --text-2:#5a6068; --text-3:#8b9199;
+  --accent:#8c2f39; --accent-soft:#f3e6e7; --line:#e6e1d8; --code-bg:#f4f1ea;
+  --th-bg:#f7f3ec; --zebra:#fcfaf7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16181d; --card:#1d2026; --text:#e6e8ec; --text-2:#a8aeb8; --text-3:#767c86;
+    --accent:#e0878f; --accent-soft:#33252a; --line:#2e333c; --code-bg:#23272f;
+    --th-bg:#232730; --zebra:#1f2229;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0 20px 80px; background:var(--bg); color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.78; letter-spacing:.01em;
+}
+.wrap{max-width:1080px; margin:0 auto}
+header.top{
+  padding:26px 0 18px; border-bottom:2px solid var(--accent); margin-bottom:34px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+header.top .src{font-size:13px; color:var(--text-3); font-family:ui-monospace,Consolas,monospace}
+header.top .note{font-size:12.5px; color:var(--text-3)}
+h1{font-size:30px; line-height:1.32; margin:0 0 26px; padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:800; letter-spacing:-.01em}
+h2{font-size:23px; line-height:1.4; margin:44px 0 16px; padding-left:12px; border-left:4px solid var(--accent); font-weight:700}
+h3{font-size:19px; margin:32px 0 12px; font-weight:700; color:var(--text)}
+h4{font-size:17px; margin:24px 0 10px; font-weight:700; color:var(--text-2)}
+p{margin:12px 0}
+strong{font-weight:700; color:var(--accent)}
+em{font-style:normal; color:var(--text-2)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:12px 0 12px 22px; padding:0}
+li{margin:7px 0}
+li>ul{margin-top:6px}
+blockquote{
+  margin:20px 0; padding:14px 20px; background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:6px 0}
+blockquote p:first-child{margin-top:0}
+blockquote p:last-child{margin-bottom:0}
+code{
+  font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-size:.9em;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px; color:var(--accent);
+}
+pre{
+  background:var(--code-bg); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:18px 0; line-height:1.62;
+}
+pre code{background:none; padding:0; color:var(--text); font-size:13.5px; white-space:pre}
+hr{border:none; border-top:1px dashed var(--line); margin:34px 0}
+.table-wrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:15px; line-height:1.62}
+thead th{
+  background:var(--th-bg); position:sticky; top:0; font-weight:700; text-align:left;
+  padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap; font-size:14px; color:var(--text-2)
+}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+footer.bottom{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--text-3); text-align:center}
+@media (max-width:720px){
+  body{font-size:15.5px; padding:0 14px 60px}
+  h1{font-size:24px} h2{font-size:20px} h3{font-size:17.5px}
+  table{font-size:13.5px} thead th,tbody td{padding:8px 10px}
+}
+@media print{
+  body{background:#fff; font-size:12pt}
+  header.top .note,footer.bottom{display:none}
+  .table-wrap{overflow:visible; break-inside:avoid}
+  h1,h2,h3{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="src">源文件：analysis-playbook.md</span>
+  <span class="note">由 md2html 自动生成 · 2026/11/1 22:20:49 · 修改 md 后需重新生成</span>
+</header>
+<h1 id="h-0">解读方法论（Playbook）</h1>
+<p>这份文件定义"怎么把新闻联播读成机会"，每晚执行时按此标准产出。</p>
+<h2 id="h-2">一、四条铁律</h2>
+<ol><li><strong>不停在"读新闻"</strong>。复述条目 = 没做工作。每条都必须回答"所以呢"。</li><li><strong>必须写出答案</strong>。没有判断的分析是无效分析。答案是可证伪的一句话，不是感想。</li><li><strong>必须持续跟踪</strong>。答案写下后进入跟踪池，每天回看，直到验证或推翻。</li><li><strong>必须说人话（第四条铁律，2026-10-14 新增）</strong>。内容是给普通人看的。<strong>任何专业词第一次出现，必须先用一句话解释它是什么、与普通人有什么关系，之后才能用简称。</strong></li></ol>
+<h3 id="h-4">三档解释规则（2026-10-16 确立）</h3>
+<p>同一个专业词在三个场景里的解释规则不同，因为<strong>读者的处境不同</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>规则</th><th>为什么</th></tr></thead><tbody><tr><td><strong>日报</strong></td><td>当天第一次出现就解释</td><td>日报是独立的一天，读者可能只看这一天</td></tr><tr><td><strong>信号档案</strong></td><td>整个档案第一次出现解释，之后不再解释</td><td>档案是累积的，从头读到尾只遇到一次</td></tr><tr><td><strong>口播稿</strong></td><td><strong>讲到哪就解释到哪</strong>，不管之前解释过几次</td><td>视频是线性的，观众不能往前翻；每期都是新观众</td></tr></tbody></table></div>
+<p><strong>一句话</strong>：文字内容按「第一次」算，视频内容按「每一次」算。</p>
+<p><strong>视频里解释的时机</strong>：讲到那个词的时候顺手解释，不要提前堆在开头 —— 那样观众记不住，也破坏节奏。</p>
+<h3 id="h-9">第四条铁律的执行标准</h3>
+<p>❌ <strong>错误</strong>：「PPI 连涨七个月，而 CPI 只有 0.9%」 ✅ <strong>正确</strong>：「<strong>工厂的出厂价格</strong>（专业叫法是 PPI）已经连涨七个月……而<strong>老百姓买东西的价格</strong>（CPI）只涨了 0.9%」</p>
+<ul><li><strong>判断标准</strong>：把这句话念给一个不看财经新闻的人听，他能听懂吗？听不懂就是没解释。</li><li><strong>常见格式</strong>：先人话，括号补专业词 —— 「<strong>老百姓买东西的价格</strong>（CPI）」「<strong>整个社会借了多少钱</strong>（社融）」</li><li><strong>术语表</strong>：<code>模板/术语对照表.md</code> 收录了常用词的人话解释，写作时对照使用；<strong>出现表里没有的新词，必须补进去</strong>。</li><li>这条规则同时适用于：日报正文、视频脚本、README 公开摘要、以及任何对外输出。</li></ul>
+<h3 id="h-12">需要特别警惕的词（历史高频踩坑）</h3>
+<div class="table-wrap"><table><thead><tr><th>词</th><th>常见错误</th><th>正确写法</th></tr></thead><tbody><tr><td>PPI</td><td>直接用"PPI"</td><td>工厂的出厂价格（PPI）</td></tr><tr><td>CPI</td><td>直接用"CPI"</td><td>老百姓买东西的价格（CPI）</td></tr><tr><td>社融</td><td>直接用"社融"</td><td>整个社会借了多少钱（社融）</td></tr><tr><td>M1/M2</td><td>直接用"M1、M2"</td><td>能马上花的活钱（M1）、存款总量（M2）</td></tr><tr><td>医共体</td><td>直接用"医共体"</td><td>把县医院、乡镇卫生院、村卫生室绑成一个整体（医共体）</td></tr><tr><td>集采</td><td>直接用"集采"</td><td>国家替全国医院统一砍价买药（集采）</td></tr><tr><td>专项债</td><td>直接用"专项债"</td><td>地方政府借来干具体项目的钱（专项债）</td></tr><tr><td>TCO</td><td>直接用"TCO"</td><td>买来加用加修加报废总共花多少钱（TCO）</td></tr></tbody></table></div>
+<h2 id="h-14">二、术语翻译规则</h2>
+<p>新闻联播的词汇是<strong>政策工具名</strong>，每个词背后都有资金流向和考核指标。翻译时问四个问题：</p>
+<div class="table-wrap"><table><thead><tr><th>问题</th><th>为什么问</th></tr></thead><tbody><tr><td>钱从哪来、到哪去、多大规模？</td><td>财政/货币表述决定谁是买方</td></tr><tr><td>谁被考核、什么时候交卷？</td><td>"工程/行动/试点"通常带时间表，时间是订单节奏</td></tr><tr><td>是新提法还是例行表述？</td><td>新提法 = 政策拐点；例行表述 = 噪音</td></tr><tr><td>排在第几条？</td><td>排序即优先级，头条和联播快讯的信息量差一个量级</td></tr></tbody></table></div>
+<p>常见术语速查：</p>
+<ul><li><strong>新质生产力</strong> → 政策资源向硬科技、先进制造倾斜；传统要素行业相对失血</li><li><strong>全国统一大市场</strong> → 地方保护被拆，跨区域经营的公司受益，靠地方壁垒活着的公司受损</li><li><strong>专项债 / 特别国债 / 超长期国债</strong> → 财政加杠杆，基建、设备更新、以工代赈类订单前置</li><li><strong>以旧换新 / 设备更新</strong> → 直接补贴终端购买，家电、汽车、工业设备短期销量弹性</li><li><strong>扩内需 / 消费大市场</strong> → 关注消费券、服务业准入、免签、消费税相关动作</li><li><strong>反内卷 / 防止恶性竞争</strong> → 行业价格战被行政干预，利好龙头、利空靠低价抢单的小厂</li><li><strong>耐心资本 / 长期资金入市</strong> → 险资、社保、汇金类资金增量，对应大盘蓝筹与红利资产</li><li><strong>一带一路 / 中欧班列 / 海外仓</strong> → 出口结构变化，跨境电商与工程承包</li><li><strong>人工智能+ / 具身智能</strong> → 算力、机器人本体、场景数据三条链</li><li><strong>民生保障类（医保、养老、生育、教育）</strong> → 财政刚性支出，对应服务供给缺口</li></ul>
+<h2 id="h-19">三、影响推演框架</h2>
+<p>对每个入选条目走一遍四层：</p>
+<pre><code>第 1 层 事实层：发生了什么（量、时间、主体）
+第 2 层 传导层：钱和政策沿着哪条链子往下走（谁付钱 → 谁接单 → 谁受益/受损）
+第 3 层 行业层：直接受益行业 / 间接受益行业 / 被挤压行业
+第 4 层 个人层：对"我"的时间、钱、技能、所在地、可触达资源的具体影响</code></pre>
+<p>第 4 层必须落到<strong>可执行动作</strong>："下周可以做的三件事"这种粒度。</p>
+<h2 id="h-23">四、答案写法（最重要）</h2>
+<pre><code>【答案 ID】T-YYYYMMDD-NN
+【问题】可被证伪的一句话
+【我的答案】明确判断
+【依据】今天的第 N 条新闻 + 什么信息
+【验证方式】盯哪个指标/事件
+【时间窗】3 / 6 / 12 个月
+【趋势判断】向上/向下/震荡/尚不明朗
+【置信度】高/中/低 + 缺什么信息</code></pre>
+<p>好答案 vs 坏答案：</p>
+<div class="table-wrap"><table><thead><tr><th>坏答案</th><th>好答案</th></tr></thead><tbody><tr><td>康复护理行业有前景</td><td>未来 12 个月康复护理床位扩张会带动康复器械招标放量，盯各省卫健委采购公告，季度招标额同比转正即为验证</td></tr><tr><td>关注人工智能</td><td>具身智能的订单会先在汽车/3C 工厂出现而非家庭场景，6 个月内看工业机器人订单结构里"带视觉+大模型"占比是否提升</td></tr><tr><td>国家支持消费</td><td>消费刺激会从补贴商品转向补贴服务（文旅/养老/家政），3 个月内看服务消费券在地方的落地规模</td></tr></tbody></table></div>
+<h2 id="h-27">四点六、影响判断的三分法（2026-10-22 新增，硬要求）</h2>
+<p><strong>问题</strong>：以前的"机会窗口"写成了"投资者可以关注""创业者有空间"——这是<strong>套话</strong>，任何人都能说，读者拿不到任何可行动的信息。</p>
+<p><strong>三分法：每一条影响判断必须同时写清三件事</strong></p>
+<div class="table-wrap"><table><thead><tr><th>分法</th><th>要回答什么</th><th>反面示例（禁止）</th><th>正面示例</th></tr></thead><tbody><tr><td><strong>一、创业风口</strong></td><td>谁在花钱、买什么、谁能接、单笔多大、什么时候</td><td>"创业者有切入空间"</td><td>"省文物局招标三维扫描，单个县 30~80 万，需要测绘乙级资质，窗口在每年 3~6 月"</td></tr><tr><td><strong>二、投资影响</strong></td><td>哪些环节被实质影响、举例主体、传导路径、财报验证点</td><td>"投资者可关注相关板块"</td><td>"上游电池（业务定位：动力电池），因为重卡换电需要更大容量，看装机量增速与毛利"</td></tr><tr><td><strong>三、个人生活</strong></td><td>身边能看到什么、价格与流程怎么变、岗位怎么变</td><td>"对个人有影响"</td><td>"小区充电桩变多、夜里电价更低、修电动车的人比修燃油车的更吃香"</td></tr></tbody></table></div>
+<p><strong>判断标准（唯一标准）</strong>：<strong>读者能不能凭这句话去查、去买、去接单、去观察？</strong> 不能就是套话。</p>
+<h3 id="h-32">投资影响的合规边界</h3>
+<p>这条线必须守住：</p>
+<div class="table-wrap"><table><thead><tr><th>✅ 可以写</th><th>❌ 不能写</th></tr></thead><tbody><tr><td>受影响主体的<strong>业务定位</strong>（"做动力电池的"）</td><td>股票代码、买入价、目标价</td></tr><tr><td><strong>传导路径</strong>（为什么受影响）</td><td>"会涨""值得买""建仓"</td></tr><tr><td><strong>财报验证点</strong>（看哪个指标能证实）</td><td>收益承诺、时间点预测</td></tr><tr><td>相关大宗/期货<strong>品种与联动逻辑</strong></td><td>具体合约与点位</td></tr></tbody></table></div>
+<p><strong>理由</strong>：描述"哪些主体的业务会被实质影响"是<strong>产业分析</strong>；说"买什么会赚钱"是<strong>投资建议</strong>。前者可写，后者不能写。每条都要标「非推荐」。</p>
+<h2 id="h-36">四点七、跨链传导（2026-10-25 新增，<strong>因方法缺陷而加</strong>）</h2>
+<p><strong>问题（真实案例）</strong>：2026-10-25 写造船信号时，三分法只写到"船厂、船板、船舶电气、铜、热卷"就停了。 用户问：<strong>"造船和电商的关系呢？"</strong> —— 一查就发现这条链一直通到跨境电商头层运费（全球集装箱船手持订单超 1,400 万 TEU = 现有船队 42%，2027 年运力增速可能 9%）。 <strong>三分法从没逼自己走这一跳，这是结构性缺陷，不是记性差。</strong></p>
+<h3 id="h-38">三分法的盲区</h3>
+<div class="table-wrap"><table><thead><tr><th>三分法问的</th><th>视角</th><th>盲区</th></tr></thead><tbody><tr><td>上中下游 + 期货品种</td><td><strong>产业链内部</strong></td><td>这个变化还改变了<strong>哪个行业的关键参数</strong>？</td></tr></tbody></table></div>
+<h3 id="h-40">第四问：跨链传导</h3>
+<p>每条信号写完三分法后，<strong>必须再问一次</strong>：</p>
+<blockquote><p><strong>"这个变化，还改变了哪个不在本产业链里的行业的关键成本、关键能力或关键门槛？"</strong></p></blockquote>
+<p>三种典型模式（照着套）：</p>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>含义</th><th>例子</th></tr></thead><tbody><tr><td><strong>成本阀门</strong></td><td>这个行业产出的价格，是另一个行业的输入成本</td><td>造船 → 运力 → <strong>运价</strong> → 跨境电商头层成本</td></tr><tr><td><strong>能力瓶颈</strong></td><td>这个行业的产品，是另一个行业能不能扩产的前提</td><td>芯片 → 算力 → AI 应用；船台 → 运力</td></tr><tr><td><strong>门槛变化</strong></td><td>这个行业的规则/标准，抬高或降低了另一个行业的准入</td><td>团体标准 → 验收口径 → 采购门槛</td></tr></tbody></table></div>
+<h3 id="h-45">硬要求</h3>
+<ol><li>每个信号文件头部必须有 <strong><code>关联信号</code></strong> 字段，列出受影响的其他信号 ID（没有就写"无"，但要说明为什么真的没有）</li><li>每条证据时间线的更新，要同步检查 <code>关联信号</code> 字段是否需要增补</li><li><strong>跨链传导写不出来，说明这条信号只值一条新闻，不值一个档案</strong></li></ol>
+<h2 id="h-47">四点五、个人影响的时间纪律（2026-10-15 新增）</h2>
+<p>个人影响<strong>不是一次性写的</strong>。每次信号有更新时，同步更新个人影响，<strong>且必须追加、带日期</strong>。</p>
+<h3 id="h-49">三条硬规则</h3>
+<ol><li><strong>只追加，不覆盖</strong>。写新内容前先加日期小标题 <code>### YYYY-MM-DD</code>，历史内容永不删改。</li><li><strong>行动项必须带两个日期</strong>：<code>记录日</code>（加它的那天）+ <code>计划日期</code>（打算做的那天）。</li><li><strong>改状态不删行</strong>：完成/放弃/顺延都在原行的待办文字后追加说明，例如「顺延至 2026-10-18，原因：当天有其它到期项，合并执行更有效率」。</li></ol>
+<h3 id="h-51">为什么要这么严</h3>
+<p><strong>"我对同一件事的判断在三个月里变了"本身就是最有价值的记录。</strong> 如果每次更新都覆盖，你就永远看不到自己的认知是怎么变化的 —— 而这恰恰是校准复盘（每 3 个月一次）的原料。</p>
+<h3 id="h-53">与证据时间线的对称性</h3>
+<div class="table-wrap"><table><thead><tr><th></th><th>四、证据时间线</th><th>七、个人影响与行动项</th></tr></thead><tbody><tr><td>记录什么</td><td><strong>世界</strong>发生了什么</td><td><strong>我</strong>因此怎么想、要做什么</td></tr><tr><td>更新节奏</td><td>有新证据时</td><td>信号更新时<strong>同步</strong>更新</td></tr><tr><td>纪律</td><td>只追加 + 带日期</td><td>只追加 + 带日期 + 行动项双日期</td></tr><tr><td>永不删改</td><td>✅</td><td>✅</td></tr></tbody></table></div>
+<p><strong>两条线合起来，才构成一条完整的判断记录：世界怎么变、我怎么变。</strong></p>
+<h2 id="h-56">五、跟踪纪律</h2>
+<ol><li>每天回看最近 30 天的未结答案，逐条判断：<strong>有证据支持 / 有证据反对 / 无新进展</strong>。</li><li>无新进展也要写一行，因为"迟迟没有下文"本身是趋势信号（政策落地能力的一种体现）。</li><li>只允许<strong>追加</strong>，不允许改写历史判断。修正要新开一条"修正说明"，并保留原答案。</li><li>置信度会随时间衰减：超过时间窗仍未验证的答案，标记为「超期未验证」并归因（是判断错、还是传导慢、还是被新政策覆盖）。</li><li>每满 3 个月做一次校准复盘，统计命中率，并写下自己的系统性偏差（例如总是高估政策落地速度）。</li></ol>
+<h2 id="h-58">六、常见陷阱</h2>
+<ul><li><strong>把口径当信号</strong>：会议报道、总结性表述、年度例行内容通常不含新增信息。</li><li><strong>把排序当全部</strong>：快讯里的短条目偶尔藏着真金（例如某项技术突破、某个标准落户），要单独看。</li><li><strong>忽略国际条目的传导</strong>：地缘、油价、航运、关税会通过成本和大宗价格直接影响个人投资。</li><li><strong>过度自信</strong>：政策到产业落地通常要 2~4 个季度，别把"表态"当成"已经发生"。</li><li><strong>只找利好</strong>：被挤压的行业往往藏着更确定的信号（做空、规避、退出时机）。</li></ul>
+<hr>
+<h2 id="h-61">⚠ 历史教训（2026-11-01 从总控会话迁移过来，<strong>这是在实践中踩过的坑，必须遵守</strong>）</h2>
+<h3 id="h-62">一、口径陷阱（最容易犯的错）</h3>
+<p>看到任何数字，先问一句「<strong>这个数字的口径是什么</strong>」：</p>
+<div class="table-wrap"><table><thead><tr><th>官方常给的说法</th><th>真实含义</th><th>别搞错成</th></tr></thead><tbody><tr><td>「涉及项目总投资 11.6 万亿」</td><td>项目<strong>未来几年</strong>要花的钱</td><td>今年要花的钱</td></tr><tr><td>「装机容量 25.18 亿千瓦」</td><td>设备的<strong>名义能力</strong></td><td>实际发电量（只有 41.8%）</td></tr><tr><td>「设计效率 91.3%」</td><td><strong>发电机组</strong>效率</td><td>全流程往返效率（只有 50~60%）</td></tr><tr><td>「五年年均增长 31.9%」</td><td><strong>过去五年</strong>的复合增速</td><td>今年的增速</td></tr><tr><td>「带动销售额 2 万亿」</td><td>可能是<strong>存款搬家</strong>不是新增消费</td><td>消费真的变强了</td></tr></tbody></table></div>
+<p><strong>规则：宁可写「口径不明，无法判断」，也不要直接采信。</strong></p>
+<h3 id="h-66">二、时间尺度陷阱</h3>
+<p><strong>不同新闻的时间尺度差很多，混用会得出完全错误的结论：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>类型</th><th>才能变成实际影响的时间</th></tr></thead><tbody><tr><td>算力网/储能项目建设</td><td>1~3 年</td></tr><tr><td>政策文件 → 订单</td><td>6~12 个月</td></tr><tr><td><strong>找矿/勘查成果 → 实际产量</strong></td><td><strong>5~10 年</strong></td></tr></tbody></table></div>
+<p><strong>已犯过的错</strong>：「找矿突破」→ 说「铜供给要增加、铜价要跌」。<strong>实际上勘查成果对 6 个月内的铜价影响为零。</strong></p>
+<h3 id="h-70">三、总量 vs 结构</h3>
+<p>很多数据是「<strong>总量温和、结构剧变</strong>」，只报总量会严重误导：</p>
+<ul><li>物流：总量只 +4.9%，但工业品 +5.3%（贡献 78%）、消费物流只 +2.9%</li><li>外贸：五年年均只 +4.5%，但新三样 +31.9%、民营占比 53.8% 到 64.1%</li><li>贷款：各项贷款 +4.8%，但科技型中小 +20.1%、房地产 −5.2%</li></ul>
+<p><strong>规则：凡是总量数据，必须同时报结构与增速差。</strong></p>
+<h3 id="h-74">四、中国官方通稿的规律</h3>
+<blockquote><p><strong>通稿越短，实质越少。</strong></p></blockquote>
+<ul><li>德国总统访华：新华社正文<strong>只有一句</strong>「举行会谈」，未披露任何合作内容 → 说明没有实质成果</li><li>如果真签了协议，通稿一定会写细节、金额、项目清单</li></ul>
+<h3 id="h-77">五、经济新闻稀少时，如实说比硬凑强</h3>
+<p>2026-10-30 那一天，16 条主条目里 <strong>15 条是党建或外交</strong>，只有 1 条经济数据。</p>
+<p><strong>正确做法</strong>：在日报开头明写「<strong>今天没有经济新闻，这本身就是信息</strong>」，然后深挖那一条。 <strong>错误做法</strong>：把党建新闻硬解读成经济信号，或凑三条凑不满的三件事。</p>
+<p><strong>已记录的事实</strong>：重大全会后 1~2 周，新闻必然以「学习贯彻」为主 —— 这是<strong>会议周期的正常现象</strong>，不是政策转向。</p>
+<h3 id="h-81">六、一条已确认的跨来源结论（可直接引用）</h3>
+<p><strong>「消费偏弱」已经被四个独立来源确认</strong>，可以当作既定事实使用：</p>
+<div class="table-wrap"><table><thead><tr><th>来源</th><th>数据</th></tr></thead><tbody><tr><td>央行 2026Q3</td><td>住户贷款 <strong>−2.0%</strong>、消费贷 <strong>−2.8%</strong></td></tr><tr><td>统计局文化企业</td><td>文化批发零售 <strong>−0.1%</strong></td></tr><tr><td>商务部</td><td>以旧换新 2 万亿，但钱来自<strong>存款搬家</strong>不是信贷</td></tr><tr><td>物流联合会</td><td><strong>单位与居民物品物流只 +2.9%</strong>（工业品 +5.3%）</td></tr></tbody></table></div>
+<h3 id="h-84">七、一条已确认的跨系统验证</h3>
+<p><strong>新闻 + 期货互相验证成功过一次</strong>（2026-10-28）：</p>
+<ul><li>新闻端：金杯电工总经理说「铜价从每吨 7 万余元涨到近 10 万元」</li><li>期货端：我们实测铜月差仅 +0.6%（弱 Backwardation）→ 现货不紧，下游在抵制高价</li><li><strong>结论：下游在抵制高价，但没有崩</strong></li></ul>
+<p><strong>这个方法论可以复用</strong>：新闻里的企业原话 + 期货里的月差数据，互相印证。</p>
+<footer class="bottom">md 供 AI 读取 · 本页供人阅读 · 内容以 md 为准</footer>
+</div>
+</body>
+</html>
