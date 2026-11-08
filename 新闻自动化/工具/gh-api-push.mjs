@@ -1,4 +1,4 @@
-﻿// 当 git 通道被阻断时，用 GitHub Git Data API 提交（不依赖 git 协议，也不启动子进程）
+// 当 git 通道被阻断时，用 GitHub Git Data API 提交（不依赖 git 协议，也不启动子进程）
 //
 // ⚠️ 重要：本脚本通过 API 直接创建远端提交，**本地 git 历史不会自动跟上**，两边会分叉。
 //    下一次 git 网络可用时必须先对齐：
@@ -35,14 +35,26 @@ const api = async (p, init = {}) => {
   return t ? JSON.parse(t) : null;
 };
 
-// —— 用 .gitignore 的简单规则挑出要同步的文件 ——
+// —— 用 .gitignore 规则挑出要同步的文件（支持 **/、* 与目录后缀） ——
 const SKIP_DIRS = new Set(['.git', 'node_modules']);
 const ig = fs.existsSync(path.join(ROOT, '.gitignore')) ? fs.readFileSync(path.join(ROOT, '.gitignore'), 'utf8') : '';
-const rules = ig.split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'));
-const ignored = (rel) => rules.some(r => {
-  const clean = r.replace(/\/+$/, '');
-  if (clean.startsWith('*')) return rel.endsWith(clean.slice(1));
-  return rel === clean || rel.startsWith(clean + '/');
+const rules = ig.split(/\r?\n/).map(s => s.replace(/^\uFEFF/, '').trim()).filter(s => s && !s.startsWith('#'));
+const globToRegExp = (rule) => {
+  let dirOnly = rule.endsWith('/');
+  let g = rule.replace(/\/+$/, '');
+  g = g.replace(/[.+^${}()|[\]\\]/g, '\\$&');     // 转义正则特殊字符
+  g = g.replace(/\*\*\//g, '(?:.*/)?');            // **/ → 任意层级
+  g = g.replace(/\*\*/g, '.*');                    // ** → 任意
+  g = g.replace(/\*/g, '[^/]*');                   // * → 单层内任意
+  const body = '^' + g + (dirOnly ? '/.*$' : '$');
+  return new RegExp(body);
+};
+const matchers = rules.map(r => ({ rule: r, re: globToRegExp(r) }));
+const ignored = (rel) => matchers.some(({ rule, re }) => {
+  if (re.test(rel)) return true;
+  // 目录规则也要能匹配"目录本身"（walk 时会先判断目录）
+  const dir = rule.replace(/\/+$/, '');
+  return rel === dir;
 });
 
 const files = [];
