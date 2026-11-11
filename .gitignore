@@ -1,4 +1,4 @@
-# 私有与本地文件
+﻿# 私有与本地文件
 .dsh/
 .gh-token
 .mimo-key
@@ -37,3 +37,10 @@ desktop.ini
 *.tmp
 *.bak
 *.log
+
+# ── 视频工具：ASR 虚拟环境与模型缓存（体积巨大，不入库）──
+新闻自动化/视频/工具/asr-venv/
+新闻自动化/视频/工具/asr-models/
+**/__pycache__/
+*.pyc
+新闻自动化/视频/工具/asr-cache/
