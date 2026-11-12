@@ -44,3 +44,4 @@ desktop.ini
 **/__pycache__/
 *.pyc
 新闻自动化/视频/工具/asr-cache/
+新闻自动化/视频/参考/
