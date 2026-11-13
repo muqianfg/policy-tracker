@@ -1,0 +1,3 @@
+file 'D:/自动化任务/新闻自动化/视频/工具/remotion-ep03/out/v-0.mp4'
+file 'D:/自动化任务/新闻自动化/视频/工具/remotion-ep03/out/v-1.mp4'
+file 'D:/自动化任务/新闻自动化/视频/工具/remotion-ep03/out/v-2.mp4'
