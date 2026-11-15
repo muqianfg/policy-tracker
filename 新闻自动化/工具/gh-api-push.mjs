@@ -54,7 +54,16 @@ const ignored = (rel) => matchers.some(({ rule, re }) => {
   if (re.test(rel)) return true;
   // 目录规则也要能匹配"目录本身"（walk 时会先判断目录）
   const dir = rule.replace(/\/+$/, '');
-  return rel === dir;
+  if (rel === dir) return true;
+  // 兜底：**/xxx 规则按路径后缀匹配；*.ext 规则按扩展名匹配（防正则转换边界情况漏网）
+  if (dir.startsWith('**/')) {
+    const s = dir.slice(3);
+    if (s && (rel === s || rel.endsWith('/' + s) || (s.startsWith('.') && rel.endsWith(s)))) return true;
+  }
+  if (dir.startsWith('*.')) {
+    if (rel.endsWith(dir.slice(1))) return true;
+  }
+  return false;
 });
 
 const files = [];
